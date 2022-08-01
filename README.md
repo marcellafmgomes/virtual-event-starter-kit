@@ -42,7 +42,7 @@ The virtual events starter kit now has added support for organising truly LIVE v
 2. Community Calls
 3. Hackathons
 4. Panel Discussions
-5. Multi-stage live conferences with a backstage (coming soon)
+5. Multi-stage live conferences with a backstage
 
 ## **Clone and Deploy**
 
