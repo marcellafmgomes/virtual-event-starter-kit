@@ -46,13 +46,6 @@ export default function Hero() {
       >
         {SITE_DESCRIPTION}
       </h2>
-      <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
-        <p>{DATE}</p>
-        <div className={styles['description-separator']} />
-        <p>
-          <strong>Online</strong>
-        </p>
-      </div>
     </div>
   );
 }

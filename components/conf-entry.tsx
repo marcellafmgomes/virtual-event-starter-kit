@@ -25,12 +25,12 @@ import Captcha, { useCaptcha } from './captcha';
 
 type FormState = 'default' | 'loading' | 'error';
 
-const DEFAULT_ERROR_MSG = 'Error! Please try again.';
+const DEFAULT_ERROR_MSG = 'Erro! Tente novamente.';
 
 function getErrorMsg(code: string) {
   switch (code) {
     case 'bad_email':
-      return 'Please enter a valid email';
+      return 'Digite um e-mail válido.';
     default:
       return DEFAULT_ERROR_MSG;
   }
