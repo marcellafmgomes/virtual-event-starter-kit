@@ -18,7 +18,7 @@ import { nanoid } from 'nanoid';
 import Redis from 'ioredis';
 
 const redis =
-  process.env.REDIS_PORT && process.env.REDIS_URL && process.env.REDIS_EMAIL_TO_ID_SECRET
+  process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_SECRET
     ? new Redis({
         port: parseInt(process.env.REDIS_PORT || '', 10),
         host: process.env.REDIS_URL,
