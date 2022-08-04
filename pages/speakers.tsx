@@ -31,13 +31,13 @@ type Props = {
 
 export default function Speakers({ speakers }: Props) {
   const meta = {
-    title: 'Speakers - Virtual Event Starter Kit',
+    title: 'Palestrantes - Seminário de Administração Pública, Direitos Humanos e Servidores',
     description: META_DESCRIPTION
   };
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Speakers" description={meta.description} />
+        <Header hero="Palestrantes" description={meta.description} />
         <SpeakersGrid speakers={speakers} />
       </Layout>
     </Page>

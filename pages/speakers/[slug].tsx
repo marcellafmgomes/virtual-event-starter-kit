@@ -30,7 +30,7 @@ type Props = {
 
 export default function SpeakerPage({ speaker }: Props) {
   const meta = {
-    title: 'Demo - Virtual Event Starter Kit',
+    title: 'SAUDHE - Seminário de Administração Pública, Direitos Humanos e Servidores',
     description: META_DESCRIPTION
   };
 

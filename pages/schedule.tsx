@@ -31,14 +31,14 @@ type Props = {
 
 export default function SchedulePage({ allStages }: Props) {
   const meta = {
-    title: 'Schedule - Virtual Event Starter Kit',
+    title: 'Cronograma - Seminário de Administração Pública, Direitos Humanos e Servidores',
     description: META_DESCRIPTION
   };
 
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Schedule" description={meta.description} />
+        <Header hero="Cronograma" description={meta.description} />
         <Schedule allStages={allStages} />
       </Layout>
     </Page>
