@@ -4,7 +4,6 @@ import Button from './Button';
 import { InviteIcon, PersonIcon } from '@100mslive/react-icons';
 import { selectLocalPeerRole } from '@100mslive/react-sdk';
 import { useHMSStore } from '@100mslive/react-sdk';
-import { ChangeRoleDialog } from './demo-cta/room-cta';
 import { useRouter } from 'next/router';
 
 const EmptyRoom = () => {
@@ -45,12 +44,6 @@ const EmptyRoom = () => {
             <InviteIcon className="mr-2" /> Invite
           </Button>
         </div>
-
-        <ChangeRoleDialog>
-          <Button>
-            <PersonIcon className="mr-2" /> Change Role
-          </Button>
-        </ChangeRoleDialog>
       </div>
     </div>
   );
