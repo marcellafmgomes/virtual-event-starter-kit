@@ -44,8 +44,8 @@ export async function getUserById(id: string): Promise<ConfUser> {
   return data ?? {};
 }
 
-export async function createUser(id: string, email: string): Promise<ConfUser> {
-  const { data, error } = await supabase!.from<ConfUser>('users').insert({ id, email }).single();
+export async function createUser(id: string, email: string, name?: string): Promise<ConfUser> {
+  const { data, error } = await supabase!.from<ConfUser>('users').insert({ id, email, name }).single();
   if (error) throw new Error(error.message);
 
   return data ?? {};

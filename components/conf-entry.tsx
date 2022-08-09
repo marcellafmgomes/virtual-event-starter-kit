@@ -38,6 +38,7 @@ function getErrorMsg(code: string) {
 
 export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
   const [emailInput, setEmailInput] = useState('');
+  const [nameInput, setNameInput] = useState('');
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
   const [errorMsg, setErrorMsg] = useState('');
@@ -50,7 +51,7 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
 
   const handleRegister = useCallback(
     async (token?: string) => {
-      const res = await register(emailInput, token);
+      const res = await register(emailInput, token, nameInput);
 
       if (!res.ok) {
         const json = await res.json();
@@ -61,7 +62,7 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
 
       onRegister();
     },
-    [emailInput, onRegister]
+    [emailInput, nameInput, onRegister]
   );
 
   const onSubmit = useCallback(
@@ -105,6 +106,33 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles['form-row']}>
           <label
+            htmlFor="name-input-field"
+            className={cn(styles['input-label'], {
+              [styles.focused]: focused,
+              [styles.error]: formState === 'error'
+            })}
+          >
+            {formState === 'error' ? (
+              <div className={cn(styles.input, styles['input-text'])}>{errorMsg}</div>
+            ) : (
+              <input
+                className={styles.input}
+                autoComplete="off"
+                type="text"
+                id="name-input-field"
+                value={nameInput}
+                onChange={e => setNameInput(e.target.value)}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                placeholder="Digite seu nome para entrar no evento"
+                aria-label="Name"
+                required
+              />
+            )}
+          </label>
+          </div>
+        <div className={styles['form-row']}>
+          <label
             htmlFor="email-input-field"
             className={cn(styles['input-label'], {
               [styles.focused]: focused,
@@ -129,6 +157,8 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
               />
             )}
           </label>
+          </div>
+          <div className={styles['form-row']}>
           <button
             type="submit"
             className={cn(styles.submit, styles.register, styles[formState])}

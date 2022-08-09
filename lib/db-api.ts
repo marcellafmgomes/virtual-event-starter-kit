@@ -20,7 +20,7 @@ import * as redisApi from './db-providers/redis';
 import * as supabaseApi from './db-providers/supabase';
 
 let dbApi: {
-  createUser: (id: string, email: string) => Promise<ConfUser>;
+  createUser: (id: string, email: string, name:string) => Promise<ConfUser>;
   getUserByUsername: (username: string) => Promise<ConfUser>;
   getUserById: (id: string) => Promise<ConfUser>;
   getTicketNumberByUserId: (id: string) => Promise<string | null>;
@@ -47,8 +47,8 @@ if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_S
   };
 }
 
-export async function createUser(id: string, email: string): Promise<ConfUser> {
-  return dbApi.createUser(id, email);
+export async function createUser(id: string, email: string, name:string): Promise<ConfUser> {
+  return dbApi.createUser(id, email, name);
 }
 
 export async function getUserByUsername(username: string): Promise<ConfUser> {

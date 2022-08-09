@@ -50,7 +50,7 @@ export default function Form({ sharePage }: Props) {
 
   const handleRegister = useCallback(
     (token?: string) => {
-      register(email, token)
+      register(email, token, name)
         .then(async res => {
           if (!res.ok) {
             throw new FormError(res);

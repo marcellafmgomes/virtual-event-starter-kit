@@ -43,7 +43,7 @@ export async function getUserById(id: string): Promise<ConfUser> {
   return { name, username, createdAt: parseInt(createdAt!, 10) };
 }
 
-export async function createUser(id: string, email: string): Promise<ConfUser> {
+export async function createUser(id: string, email: string, name:string): Promise<ConfUser> {
   const ticketNumber = await redis!.incr('count');
   const createdAt = Date.now();
   await redis!.hmset(
@@ -53,7 +53,11 @@ export async function createUser(id: string, email: string): Promise<ConfUser> {
     'ticketNumber',
     ticketNumber,
     'createdAt',
-    createdAt
+    createdAt,
+    'username',
+    email.split('@')[0], 
+    'name',
+    name
   );
   return { id, email, ticketNumber, createdAt };
 }

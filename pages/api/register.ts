@@ -46,6 +46,7 @@ export default async function register(
   }
 
   const email: string = ((req.body.email as string) || '').trim().toLowerCase();
+  const name: string = ((req.body.name as string) || '').trim();
   const token: string = req.body.token as string;
   if (!validator.isEmail(email)) {
     return res.status(400).json({
@@ -73,7 +74,6 @@ export default async function register(
   let ticketNumber: number;
   let createdAt: number = Date.now();
   let statusCode = 200;
-  let name: string | null | undefined = undefined;
   let username: string | null | undefined = undefined;
 
   id = emailToId(email);
@@ -81,13 +81,12 @@ export default async function register(
 
   if (existingTicketNumberString) {
     const user = await getUserById(id);
-    name = user.name;
     username = user.username;
     ticketNumber = parseInt(existingTicketNumberString, 10);
     createdAt = user.createdAt!;
     statusCode = 200;
   } else {
-    const newUser = await createUser(id, email);
+    const newUser = await createUser(id, email, name);
     ticketNumber = newUser.ticketNumber!;
     createdAt = newUser.createdAt!;
     statusCode = 201;
