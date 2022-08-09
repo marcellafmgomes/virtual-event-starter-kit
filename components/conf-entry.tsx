@@ -100,8 +100,8 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
 
   return (
     <div className={cn(styles.container, styleUtils.appear, styleUtils['appear-first'])}>
-      <h1 className={cn(styles.hero)}>Ready to experience a live stage?</h1>
-      <h2 className={cn(styles.description)}>Submit your details below to enter</h2>
+      <h1 className={cn(styles.hero)}>Pronto para ir para a transmissão?</h1>
+      <h2 className={cn(styles.description)}>Digite seus dados abaixo!</h2>
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles['form-row']}>
           <label
@@ -123,8 +123,8 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
                 onChange={e => setEmailInput(e.target.value)}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
-                placeholder="Enter email to join the event"
-                aria-label="Your email address"
+                placeholder="Digite seu email para entrar no evento"
+                aria-label="Email"
                 required
               />
             )}
@@ -138,7 +138,7 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
             {formState === 'loading' ? (
               <LoadingDots size={4} />
             ) : (
-              <>{formState === 'error' ? 'Try Again' : 'Join'}</>
+              <>{formState === 'error' ? 'Tente novamente' : 'Entre'}</>
             )}
           </button>
         </div>

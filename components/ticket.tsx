@@ -70,41 +70,21 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
       <div ref={divRef}>
         <div className={styles['ticket-text']}>
           <h2 className={cn(styles.hero, styleUtils.appear, styleUtils['appear-first'])}>
-            {sharePage ? (
+            {
               name ? (
                 <>{name}’s Ticket</>
               ) : (
                 <>{SITE_NAME}</>
               )
-            ) : (
-              <>
-                You're in. <br /> Make it unique.
-              </>
-            )}
+          }
           </h2>
-          <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>
-            {sharePage ? (
+          <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>           
               <>
-                Join {name ?? 'them'} on {DATE}.
-              </>
-            ) : (
-              <>
-                Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
-                your GitHub profile.
-              </>
-            )}
+                Veja a transmissão ao vivo {name ?? ''} em {DATE}.
+              </>        
           </p>
         </div>
-        <div className={cn(styleUtils.appear, styleUtils['appear-third'])}>
-          {!sharePage ? (
-            <TicketForm
-              defaultUsername={username}
-              setTicketGenerationState={setTicketGenerationState}
-            />
-          ) : (
-            <Form sharePage />
-          )}
-        </div>
+
       </div>
       <div className={styles['ticket-visual-wrapper']}>
         <div
@@ -118,7 +98,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
             ticketGenerationState={ticketGenerationState}
           />
         </div>
-        {!sharePage && (
+
           <>
             {username ? (
               <div>
@@ -133,7 +113,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
               <div className={styles['ticket-actions-placeholder']} />
             )}
           </>
-        )}
+
       </div>
     </div>
   );

@@ -17,7 +17,7 @@
 export const SITE_URL = 'https://saudhe.vercel.app';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'ufmg';
-export const BRAND_NAME = 'UFMG';
+export const BRAND_NAME = 'SAUDHE 2022';
 export const SITE_NAME_MULTILINE = ['UFMG', 'Seminário'];
 export const SITE_NAME = 'UFMG Seminário';
 export const META_DESCRIPTION =

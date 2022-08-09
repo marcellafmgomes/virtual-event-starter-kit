@@ -36,7 +36,7 @@ export default function TicketProfile({ name, username, size = 1, ticketGenerati
         })}
       >
         {username ? (
-          <img src={`https://github.com/${username}.png`} alt={username} className={styles.image} />
+          <img src={`https://github.com/agomes.png`} alt={username} className={styles.image} />
         ) : (
           <span className={cn(styles.image, styles['empty-icon'])}>
             <IconAvatar />
@@ -54,7 +54,7 @@ export default function TicketProfile({ name, username, size = 1, ticketGenerati
               [styles.show]: ticketGenerationState === 'loading'
             })}
           >
-            {name || username || 'Your Name'}
+            {name || username || 'Seu nome'}
           </span>
         </p>
         <p className={styles.username}>

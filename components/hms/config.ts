@@ -2,7 +2,7 @@ export const hmsConfig = {
   /**
    * no. of tiles rendered before active speaker mode actviates
    */
-  activeSpeakerThreshold: 2,
+  activeSpeakerThreshold: 1,
   /**
    * aspect ratio of video tiles
    */

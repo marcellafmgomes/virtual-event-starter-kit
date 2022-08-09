@@ -34,6 +34,7 @@ type Props = {
 
 export default function Form({ sharePage }: Props) {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [errorTryAgain, setErrorTryAgain] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -59,8 +60,8 @@ export default function Form({ sharePage }: Props) {
           const params = {
             id: data.id,
             ticketNumber: data.ticketNumber,
-            name: data.name,
-            username: data.username
+            name: name,
+            username: data.username ?? email.split('@')[0]
           };
 
           if (sharePage) {
@@ -79,7 +80,7 @@ export default function Form({ sharePage }: Props) {
           }
         })
         .catch(async err => {
-          let message = 'Error! Please try again.';
+          let message = 'Erro! Por favor tente novamente.';
 
           if (err instanceof FormError) {
             const { res } = err;
@@ -88,7 +89,7 @@ export default function Form({ sharePage }: Props) {
               : null;
 
             if (data?.error?.code === 'bad_email') {
-              message = 'Please enter a valid email';
+              message = 'Por favor digite um e-mail válido.';
             }
           }
 
@@ -145,7 +146,7 @@ export default function Form({ sharePage }: Props) {
             className={cn(styles.submit, styles.register, styles.error)}
             onClick={onTryAgainClick}
           >
-            Try Again
+            Tente novamente
           </button>
         </div>
       </div>
@@ -160,6 +161,28 @@ export default function Form({ sharePage }: Props) {
       })}
       onSubmit={onSubmit}
     >
+        <div className={styles['form-row']}>
+        <label
+          htmlFor="name-input-field"
+          className={cn(styles['input-label'], {
+            [styles.focused]: focused
+          })}
+        >
+          <input
+            className={styles.input}
+            autoComplete="off"
+            type="text"
+            id="name-input-field"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+            placeholder="Digite seu nome"
+            aria-label="Seu nome"
+            required            
+          />
+        </label>
+      </div>
       <div className={styles['form-row']}>
         <label
           htmlFor="email-input-field"
@@ -176,18 +199,20 @@ export default function Form({ sharePage }: Props) {
             onChange={e => setEmail(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            placeholder="Enter email to register free"
-            aria-label="Your email address"
+            placeholder="Digite seu e-mail"
+            aria-label="Seu endereço de email"
             required
           />
         </label>
+      </div>
+      <div className={styles['form-row']}>
         <button
-          type="submit"
-          className={cn(styles.submit, styles.register, styles[formState])}
-          disabled={formState === 'loading'}
-        >
-          {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
-        </button>
+            type="submit"
+            className={cn(styles.submit, styles.register, styles[formState])}
+            disabled={formState === 'loading'}
+          >
+            {formState === 'loading' ? <LoadingDots size={4} /> : <>Registrar</>}
+          </button>        
       </div>
       <Captcha ref={captchaRef} onVerify={handleRegister} />
     </form>

@@ -22,7 +22,7 @@ const MobileView: React.FC<{ activePeer: HMSPeer; allPeers: HMSPeer[] }> = ({
         <MobileHeader />
       ) : (
         <div className="w-full h-full flex items-center justify-center font-medium">
-          No Speakers Present
+          Nenhum palestrante presente
         </div>
       )}
       {isSomeoneScreenSharing ? <ScreenshareTile /> : <VideoList peer={activePeer} />}

@@ -85,7 +85,6 @@ export default function Layout({
             )}
           </header>
         )}
-        <ViewSource />
         <div className={styles.page}>
           <main className={styles.main} style={layoutStyles}>
             <SkipNavContent />
