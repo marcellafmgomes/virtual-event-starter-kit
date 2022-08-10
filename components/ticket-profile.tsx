@@ -21,8 +21,8 @@ import IconAvatar from './icons/icon-avatar';
 import styles from './ticket-profile.module.css';
 
 type Props = {
-  name?: string;
-  username?: string;
+  name: string | null;
+  username: string | null;
   size?: number;
   ticketGenerationState: TicketGenerationState;
 };

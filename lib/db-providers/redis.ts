@@ -29,23 +29,36 @@ const redis =
     : undefined;
 
 export async function getUserByUsername(username: string): Promise<ConfUser> {
-  const [name, ticketNumber] = await redis!.hmget(`user:${username}`, 'name', 'ticketNumber');
-  return { name, ticketNumber: ticketNumber ? parseInt(ticketNumber, 10) : null };
+  const [id, email, name, ticketNumber, createdAt] = await redis!.hmget(`username:${username}`, 'id', 'email', 'username', 'name', 'ticketNumber', 'createdAt');
+  return {id: id ?? '', email: email ?? '', username, name: name ?? '', ticketNumber: ticketNumber ? parseInt(ticketNumber, 10) : 0, createdAt: createdAt ? parseInt(createdAt, 10) : 0};
+}
+
+// Get all users from a redis database and return them as an array of ConfUser objects.
+export async function getAllUsers(): Promise<ConfUser[]> {
+  const keys = redis!.keys('id*');
+  const users = Promise.all(
+    (await keys).map(key =>  getUserById(key)
+    .then(user => {
+      console.log(user);
+      return user; 
+    })
+    .catch(err => {
+      console.error(err);
+      return {} as ConfUser;
+    }
+    )));
+  return users;
 }
 
 export async function getUserById(id: string): Promise<ConfUser> {
-  const [name, username, createdAt] = await redis!.hmget(
-    `id:${id}`,
-    'name',
-    'username',
-    'createdAt'
-  );
-  return { name, username, createdAt: parseInt(createdAt!, 10) };
+  const user = await redis!.hgetall(id);
+  return {id, email: user.email, username: user.username, name: user.name, ticketNumber: parseInt(user.ticketNumber, 10), createdAt: parseInt(user.createdAt, 10)};
 }
 
 export async function createUser(id: string, email: string, name:string): Promise<ConfUser> {
   const ticketNumber = await redis!.incr('count');
   const createdAt = Date.now();
+  const username =  email.split('@')[0];
   await redis!.hmset(
     `id:${id}`,
     'email',
@@ -55,15 +68,15 @@ export async function createUser(id: string, email: string, name:string): Promis
     'createdAt',
     createdAt,
     'username',
-    email.split('@')[0], 
+    username, 
     'name',
     name
   );
-  return { id, email, ticketNumber, createdAt };
+  return { id, email, ticketNumber, createdAt, username, name };
 }
 
 export async function getTicketNumberByUserId(id: string): Promise<string | null> {
-  return await redis!.hget(`id:${id}`, 'ticketNumber');
+  return await redis!.hget(id, 'ticketNumber');
 }
 
 export async function createGitHubUser(user: any): Promise<string> {
@@ -82,7 +95,7 @@ export async function updateUserWithGitHubUser(
   id: string,
   token: string,
   ticketNumber: string
-): Promise<ConfUser> {
+): Promise<string> {
   const [username, name] = await redis!.hmget(`github-user:${token}`, 'login', 'name');
   if (!username) {
     throw new Error('Invalid or expired token');
@@ -100,5 +113,5 @@ export async function updateUserWithGitHubUser(
     .hsetnx(userKey, 'ticketNumber', ticketNumber)
     .exec();
 
-  return { username, name };
+  return id;
 }

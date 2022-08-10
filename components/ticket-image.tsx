@@ -34,14 +34,14 @@ export default function TicketImage() {
           </Head>
           <TicketVisual
             size={1700 / 650}
-            username={query.username ? query.username.toString() : undefined}
+            username={query.username ? query.username.toString() : ''}
             ticketNumber={parseInt(query.ticketNumber.toString(), 10)}
             name={
               query.name
                 ? query.name?.toString()
                 : query.username
                 ? query.username.toString()
-                : undefined
+                : ''
             }
           />
         </div>

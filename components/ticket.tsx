@@ -18,30 +18,25 @@ import cn from 'classnames';
 import Tilt from 'vanilla-tilt';
 import { useRef, useEffect, useState } from 'react';
 import { UserData } from '@lib/hooks/use-conf-data';
-import { TicketGenerationState } from '@lib/constants';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import { scrollTo } from '@lib/smooth-scroll';
 import styles from './ticket.module.css';
 import styleUtils from './utils.module.css';
-import TicketForm from './ticket-form';
 import TicketVisual from './ticket-visual';
 import TicketActions from './ticket-actions';
 import TicketCopy from './ticket-copy';
 import { DATE, SITE_NAME } from '@lib/constants';
-import Form from './form';
 
 type Props = {
+  id: UserData['id'];
   username: UserData['username'];
   ticketNumber: UserData['ticketNumber'];
   name: UserData['name'];
   sharePage?: boolean;
 };
 
-export default function Ticket({ username, name, ticketNumber, sharePage }: Props) {
+export default function Ticket({ id, username, name, ticketNumber, sharePage }: Props) {
   const ticketRef = useRef<HTMLDivElement>(null);
-  const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
-    'default'
-  );
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -95,7 +90,6 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
             username={username}
             name={name}
             ticketNumber={ticketNumber}
-            ticketGenerationState={ticketGenerationState}
           />
         </div>
 
@@ -103,7 +97,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
             {username ? (
               <div>
                 <div className={styles['ticket-actions']}>
-                  <TicketActions username={username} />
+                  <TicketActions username={username} id={id} />
                 </div>
                 <div className={styles['ticket-copy']}>
                   <TicketCopy username={username} />

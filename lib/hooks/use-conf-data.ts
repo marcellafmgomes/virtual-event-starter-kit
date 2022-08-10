@@ -19,10 +19,10 @@ import { createContext, useContext } from 'react';
 export type PageState = 'registration' | 'ticket';
 
 export type UserData = {
-  id?: string;
-  ticketNumber?: number;
-  username?: string;
-  name?: string;
+  id: string | null;
+  ticketNumber: number | null;
+  username: string | null;
+  name: string | null;
 };
 
 type ConfDataContextType = {

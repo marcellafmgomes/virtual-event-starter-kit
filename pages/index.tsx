@@ -27,12 +27,12 @@ export default function Conf() {
     title: 'SAUDHE - Seminário de Administração Pública, Direitos Humanos e Servidores',
     description: META_DESCRIPTION
   };
-  const ticketNumber = query.ticketNumber?.toString();
+  const ticketNumber = query?.ticketNumber?.toString();
   const defaultUserData = {
-    id: query.id?.toString(),
-    ticketNumber: ticketNumber ? parseInt(ticketNumber, 10) : undefined,
-    name: query.name?.toString(),
-    username: query.username?.toString()
+    id: query?.id?.toString(),
+    ticketNumber: ticketNumber ? parseInt(ticketNumber, 10) : null,
+    name: query?.name?.toString(),
+    username: query?.username?.toString()
   };
 
   return (

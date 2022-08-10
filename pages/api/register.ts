@@ -74,7 +74,7 @@ export default async function register(
   let ticketNumber: number;
   let createdAt: number = Date.now();
   let statusCode = 200;
-  let username: string | null | undefined = undefined;
+  let username = email.split('@')[0];
 
   id = emailToId(email);
   const existingTicketNumberString = await getTicketNumberByUserId(id);
@@ -83,12 +83,12 @@ export default async function register(
     const user = await getUserById(id);
     username = user.username;
     ticketNumber = parseInt(existingTicketNumberString, 10);
-    createdAt = user.createdAt!;
+    createdAt = user.createdAt;
     statusCode = 200;
   } else {
     const newUser = await createUser(id, email, name);
-    ticketNumber = newUser.ticketNumber!;
-    createdAt = newUser.createdAt!;
+    ticketNumber = newUser.ticketNumber;
+    createdAt = newUser.createdAt;
     statusCode = 201;
   }
 

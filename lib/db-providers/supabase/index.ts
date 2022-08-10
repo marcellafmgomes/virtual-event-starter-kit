@@ -30,7 +30,17 @@ export async function getUserByUsername(username: string): Promise<ConfUser> {
     .eq('username', username)
     .single();
 
-  return data ?? {};
+  return data as ConfUser;
+}
+
+export async function getAllUsers(): Promise<ConfUser[]> {
+  const { data,error } = await supabase!
+    .from<ConfUser>('users')
+    .select('id, email, ticketNumber, name, username, createdAt');
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data ?? [];
 }
 
 export async function getUserById(id: string): Promise<ConfUser> {
@@ -68,7 +78,7 @@ export async function createGitHubUser(user: any): Promise<string> {
   return data.id;
 }
 
-export async function updateUserWithGitHubUser(id: string, token: string): Promise<ConfUser> {
+export async function updateUserWithGitHubUser(id: string, token: string): Promise<string> {
   const { data } = await supabase!.from('github_users').select('userData').eq('id', token).single();
   const { login: username, name } = data?.userData;
   if (!username) {
@@ -82,5 +92,5 @@ export async function updateUserWithGitHubUser(id: string, token: string): Promi
     .single();
   if (error) console.log(error.message);
 
-  return { username, name };
+  return id;
 }

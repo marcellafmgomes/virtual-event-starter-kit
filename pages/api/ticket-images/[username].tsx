@@ -17,24 +17,22 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import screenshot from '@lib/screenshot';
 import { SITE_URL, SAMPLE_TICKET_NUMBER } from '@lib/constants';
-import { getUserByUsername } from '@lib/db-api';
+import { getAllUsers } from '@lib/db-api';
+import { ConfUser } from '@lib/types';
 
-export default async function ticketImages(req: NextApiRequest, res: NextApiResponse) {
+export default async function TicketImages(req: NextApiRequest, res: NextApiResponse) {
   let url: string;
-  let name: string | null | undefined;
-  let ticketNumber: number | null | undefined = SAMPLE_TICKET_NUMBER;
+  const users = await getAllUsers();
   const { username } = req.query || {};
-  if (username) {
+  if (username ) {
     const usernameString = username.toString();
-    const user = await getUserByUsername(usernameString);
-    name = user.name;
-    ticketNumber = user.ticketNumber;
+    const currentUser = users.find((u: ConfUser) => u.username === usernameString) || null;
+    const nameString = currentUser?.name || '';
+    const ticketNumberString = currentUser?.ticketNumber.toString() || '';
     url = `${SITE_URL}/ticket-image?username=${encodeURIComponent(
-      usernameString
-    )}&ticketNumber=${encodeURIComponent(ticketNumber ?? SAMPLE_TICKET_NUMBER)}`;
-    if (name) {
-      url = `${url}&name=${encodeURIComponent(name)}`;
-    }
+      usernameString)}
+      &ticketNumber=${encodeURIComponent(ticketNumberString)}
+      &name=${encodeURIComponent(nameString)}`;
 
     const file = await screenshot(url);
     res.setHeader('Content-Type', `image/png`);

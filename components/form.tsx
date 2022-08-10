@@ -97,7 +97,7 @@ export default function Form({ sharePage }: Props) {
           setFormState('error');
         });
     },
-    [email, router, setPageState, setUserData, sharePage]
+    [email, name, router, setPageState, setUserData, sharePage]
   );
 
   const onSubmit = useCallback(
@@ -211,7 +211,7 @@ export default function Form({ sharePage }: Props) {
             className={cn(styles.submit, styles.register, styles[formState])}
             disabled={formState === 'loading'}
           >
-            {formState === 'loading' ? <LoadingDots size={4} /> : <>Registrar</>}
+            {formState === 'loading' ? <LoadingDots size={4} /> : <>Registrar / Gerar Cartão </>}
           </button>        
       </div>
       <Captcha ref={captchaRef} onVerify={handleRegister} />

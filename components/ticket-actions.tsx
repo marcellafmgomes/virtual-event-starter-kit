@@ -25,10 +25,11 @@ import styleUtils from './utils.module.css';
 import styles from './ticket-actions.module.css';
 
 type Props = {
+  id: string;
   username: string;
 };
 
-export default function TicketActions({ username }: Props) {
+export default function TicketActions({ id, username }: Props) {
   const [imgReady, setImgReady] = useState(false);
   const [loading, setLoading] = useState(false);
   const downloadLink = useRef<HTMLAnchorElement>();

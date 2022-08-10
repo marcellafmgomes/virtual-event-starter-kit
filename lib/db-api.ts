@@ -22,10 +22,11 @@ import * as supabaseApi from './db-providers/supabase';
 let dbApi: {
   createUser: (id: string, email: string, name:string) => Promise<ConfUser>;
   getUserByUsername: (username: string) => Promise<ConfUser>;
+  getAllUsers: () => Promise<ConfUser[]>;
   getUserById: (id: string) => Promise<ConfUser>;
   getTicketNumberByUserId: (id: string) => Promise<string | null>;
   createGitHubUser: (user: any) => Promise<string>;
-  updateUserWithGitHubUser: (id: string, token: string, ticketNumber: string) => Promise<ConfUser>;
+  updateUserWithGitHubUser: (id: string, token: string, ticketNumber: string) => Promise<string>;
 };
 
 if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_SECRET) {
@@ -38,12 +39,13 @@ if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_S
   dbApi = supabaseApi;
 } else {
   dbApi = {
-    createUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER }),
-    getUserByUsername: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER }),
-    getUserById: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER }),
+    createUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as ConfUser),
+    getUserByUsername: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as ConfUser),
+    getAllUsers: () => Promise.resolve([{ ticketNumber: SAMPLE_TICKET_NUMBER }] as ConfUser[]),
+    getUserById: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as ConfUser),
     getTicketNumberByUserId: () => Promise.resolve(null),
     createGitHubUser: () => Promise.resolve(''),
-    updateUserWithGitHubUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER })
+    updateUserWithGitHubUser: () => Promise.resolve('')
   };
 }
 
@@ -53,6 +55,10 @@ export async function createUser(id: string, email: string, name:string): Promis
 
 export async function getUserByUsername(username: string): Promise<ConfUser> {
   return dbApi.getUserByUsername(username);
+}
+
+export async function getAllUsers(): Promise<ConfUser[]> {
+  return dbApi.getAllUsers();
 }
 
 export async function getUserById(id: string): Promise<ConfUser> {
@@ -71,6 +77,6 @@ export async function updateUserWithGitHubUser(
   id: string,
   token: string,
   ticketNumber: string
-): Promise<ConfUser> {
+): Promise<string> {
   return dbApi.updateUserWithGitHubUser(id, token, ticketNumber);
 }

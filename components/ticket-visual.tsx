@@ -26,9 +26,9 @@ import TicketMonoMobile from './ticket-mono-mobile';
 
 type Props = {
   size?: number;
-  name?: string;
-  ticketNumber?: number;
-  username?: string;
+  name: string | null;
+  ticketNumber: number | null;
+  username: string | null;
   ticketGenerationState?: TicketGenerationState;
 };
 

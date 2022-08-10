@@ -18,37 +18,27 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Error from 'next/error';
 import Head from 'next/head';
 import { SkipNavContent } from '@reach/skip-nav';
-import { getUserByUsername } from '@lib/db-api';
+import { getAllUsers } from '@lib/db-api';
 
 import Page from '@components/page';
 import ConfContent from '@components/index';
 import { SITE_URL, SITE_NAME, META_DESCRIPTION, SAMPLE_TICKET_NUMBER } from '@lib/constants';
+import { ConfUser } from '@lib/types';
 
 type Props = {
-  username: string | null;
-  usernameFromParams: string | null;
-  name: string | null;
-  ticketNumber: number | null;
+  user: ConfUser;
 };
 
-export default function TicketShare({ username, ticketNumber, name, usernameFromParams }: Props) {
-  if (!ticketNumber) {
-    return <Error statusCode={404} />;
-  }
+export default function TicketShare({ user }: Props) {
 
-  const meta = username
-    ? {
-        title: `${name}’s ${SITE_NAME} Ticket`,
+  const meta =
+      {
+        title: `${user.name}’s ${SITE_NAME} Ticket`,
         description: META_DESCRIPTION,
-        image: `/api/ticket-images/${username}`,
-        url: `${SITE_URL}/tickets/${username}`
+        image: `/api/ticket-images/${user.username}`,
+        url: `${SITE_URL}/tickets/${user.username}`
       }
-    : {
-        title: 'Ticket Demo - Virtual Event Starter Kit',
-        description: META_DESCRIPTION,
-        image: `/api/ticket-images/${usernameFromParams}`,
-        url: `${SITE_URL}/tickets/${usernameFromParams}`
-      };
+
 
   return (
     <Page meta={meta}>
@@ -58,9 +48,10 @@ export default function TicketShare({ username, ticketNumber, name, usernameFrom
       <SkipNavContent />
       <ConfContent
         defaultUserData={{
-          username: username || undefined,
-          name: name || '',
-          ticketNumber
+          id: user.id,
+          username: user.username,
+          name: user.name,
+          ticketNumber: user.ticketNumber
         }}
         sharePage
       />
@@ -69,29 +60,31 @@ export default function TicketShare({ username, ticketNumber, name, usernameFrom
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const username = params?.username?.toString() || null;
-  let name: string | null | undefined;
-  let ticketNumber: number | null | undefined;
+  const username = params?.username;
+  const users = await getAllUsers();
+  const currentUser = users.find((u: ConfUser) => u.username === username) || null;
 
-  if (username) {
-    const user = await getUserByUsername(username);
-    name = user.name ?? user.username;
-    ticketNumber = user.ticketNumber;
+  if (!currentUser) {
+    return {
+      notFound: true
+    };
   }
   return {
     props: {
-      username: ticketNumber ? username : null,
-      usernameFromParams: username || null,
-      name: ticketNumber ? name || username || null : null,
-      ticketNumber: ticketNumber || SAMPLE_TICKET_NUMBER
+      user: currentUser
     },
-    revalidate: 5
+    revalidate: 60
   };
 };
 
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  return Promise.resolve({
-    paths: [],
+  const users = await getAllUsers();
+  const usernames = users.map((user: ConfUser) => ({ params: { username: user.username } }));
+  return {
+    paths: usernames,
     fallback: 'blocking'
-  });
+  };
 };
+
+
