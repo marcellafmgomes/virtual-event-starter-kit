@@ -36,8 +36,8 @@
 
 }
 .card:hover {
-  background-image: linear-gradient(#fe8fff, #fe8fff),
-  linear-gradient(to right, #ef5fff, #ef5fff);  
+  background-image: linear-gradient(var(--brand), var(--brand)),
+  linear-gradient(to right, var(--brand-dark), var(--brand-dark));  
 
 }
 
@@ -69,7 +69,7 @@
   font-size: 14px;
   font-weight: normal;
   margin: 0;
-  color: #fff;
+  color: #edf0f1;
 }
 
 .avatar {
@@ -92,6 +92,6 @@
 }
 
 .link:hover .card:not(.is-live) {
-  background-image: linear-gradient(#fe8fff, #fe8fff),
-  linear-gradient(to right, #ef5fff, #ef5fff);
+  background-image: linear-gradient(var(--brand), var(--brand)),
+  linear-gradient(to right, var(--brand-dark), var(--brand-dark));
 }

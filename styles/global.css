@@ -56,12 +56,12 @@
   --accents-8: #1929c9;
 
   --sky: #557cff;
-  --secondary-color: #969de7;
-  --sidebar: #2c5df5;
-  --brand: #fe8fff;
-  --brand-lighter: #fee9ff;
-  --brand-light: #feaaff;
-  --brand-dark: ##ef5fff;
+  --secondary-color: #616262;
+  --sidebar: var(--sky);
+  --brand: #d37b3a;
+  --brand-lighter: #e7d1c0;
+  --brand-light: #f0af80;
+  --brand-dark: #b15412;
   --sky1: #356cff;
   --error: #ea3323;
 
@@ -189,7 +189,7 @@ button {
 input {
   transition: background 0.2s ease;
   font-family: inherit;
-  color: var(--foreground);
+  color: var(--secondary-color);
   border: none;
 }
 
@@ -322,11 +322,11 @@ input {
 }
 
 .guest-badge {
-  border: 1px solid #ef5fff;
+  border: 1px solid var(--brand-dark);
 }
 
 .attendee-badge {
-  border: 1px solid #ef5fff;
+  border: 1px solid var(--brand-dark);
 }
 
 .tabs button[data-state='active'] {

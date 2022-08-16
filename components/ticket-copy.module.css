@@ -87,7 +87,7 @@
 }
 
 .mobile-copy:hover * {
-  color: #fff;
+  color: #edf0f1;
   transition: color 0.2s ease;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .field:hover * {
-  color: #fff;
+  color: #edf0f1;
   transition: color 0.2s ease;
 }
 

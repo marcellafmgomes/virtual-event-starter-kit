@@ -29,8 +29,8 @@
 .card:hover,
 .card:focus {
   outline: none;
-  background-image: linear-gradient(#fe8fff, #fe8fff),
-    linear-gradient(to right, #ef5fff, #ef5fff);
+  background-image: linear-gradient(var(--brand), var(--brand)),
+    linear-gradient(to right, var(--brand-dark), var(--brand-dark));
 }
 
 .grid {
@@ -56,7 +56,7 @@
 
 .cardBody {
   padding: var(--space-4x);
-  color: #fff;
+  color: #edf0f1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

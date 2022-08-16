@@ -73,7 +73,7 @@
   padding-left: 15px;
   padding-right: 15px;
   font-size: var(--text-md);
-  color: #fff;
+  color: #edf0f1;
   font-family: inherit;
 }
 
@@ -139,7 +139,7 @@
   letter-spacing: -0.02em;
   outline: none;
   font-weight: 500;
-  color: #ffffff;
+  color: #edf0f1;
   transition: background-color 0.2s ease, color 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -164,12 +164,12 @@
 
 .submit.default:hover {
   background: var( --accents-8 );
-  color: #fff;
+  color: #edf0f1;
 }
 
 .submit.error:hover {
   background: var( --accents-8 );
-  color: #fff;
+  color: #edf0f1;
 }
 
 .submit.default:disabled,
@@ -177,7 +177,7 @@
   cursor: default;
   background: var(--sky);
   border-color: var(--sky);
-  color: #fff;
+  color: #edf0f1;
   justify-content: flex-start;
   overflow: hidden;
 }

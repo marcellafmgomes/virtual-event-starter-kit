@@ -17,7 +17,7 @@
 .button {
   border-radius: var(--space-2x);
   border: 1px solid #1929c9;
-  color: #ffffff;
+  color: #edf0f1;
   background: #1929c9;
   cursor: pointer;
   font-family: inherit;
@@ -52,7 +52,7 @@
 .button:hover,
 .button:focus {
   background: #1929c9;
-  color: #fff;
+  color: #edf0f1;
 }
 
 .first {

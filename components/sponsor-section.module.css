@@ -109,7 +109,7 @@
 
 .name {
   font-weight: 800;
-  color: #fff;
+  color: #edf0f1;
   font-size: 30px;
   margin: 0;
   line-height: 1.4;
@@ -120,7 +120,7 @@
 .button {
   border-radius: var(--space-2x);
   border: 1px solid #1929c9;
-  color: #ffffff;
+  color: #edf0f1;
   background: #1929c9;
   cursor: pointer;
   font-family: inherit;
@@ -142,7 +142,7 @@
 .button:hover,
 .button:focus {
   background: #1929c9;
-  color: #fff;
+  color: #edf0f1;
 }
 
 .button > svg {
@@ -153,7 +153,7 @@
 
 .button-resource {
   background: #1929c9;
-  color: #fff;
+  color: #edf0f1;
   border: 1px solid var(--accents-7);
   max-width: 100%;
   margin-bottom: var(--space-4x);
@@ -173,7 +173,7 @@
 
 .button-link {
   background: #1929c9;
-  color: #fff;
+  color: #edf0f1;
   border: none;
 }
 

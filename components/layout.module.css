@@ -15,7 +15,7 @@
  */
 
 .background {
-  background: #fff;
+  background: #edf0f1;
   color: var(--sky);
   min-height: 100vh;
   min-height: var(--100vh);
@@ -91,7 +91,7 @@
   text-transform: uppercase;
   padding: var(--space-4x);
   font-size: 14px;
-  color: #fff;
+  color: #edf0f1;
   font-weight: 700;
   letter-spacing: -0.05em;
   height: 100%;
