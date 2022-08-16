@@ -25,7 +25,7 @@ import styleUtils from './utils.module.css';
 import styles from './ticket-actions.module.css';
 
 type Props = {
-  id: string;
+  id: string | null;
   username: string;
 };
 
