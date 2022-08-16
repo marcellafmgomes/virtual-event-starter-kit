@@ -75,7 +75,7 @@
 }
 
 .backlink:hover {
-  color: #fff;
+  color: #1929c9;
 }
 
 .name-and-logo {
@@ -86,8 +86,8 @@
   padding: var(--space-4x) 0 24px 0;
   display: flex;
   flex-direction: column;
-  color: var(--accents-2);
-  border-bottom: 1px solid var(--accents-7);
+  color: var(--accents-5);
+  border-bottom: 1px solid var(--accents-5);
 }
 
 .image::before {
@@ -119,9 +119,9 @@
 
 .button {
   border-radius: var(--space-2x);
-  border: 1px solid #fff;
-  color: #000;
-  background: #fff;
+  border: 1px solid #1929c9;
+  color: #ffffff;
+  background: #1929c9;
   cursor: pointer;
   font-family: inherit;
   font-size: var(--text-md);
@@ -141,7 +141,7 @@
 
 .button:hover,
 .button:focus {
-  background: black;
+  background: #1929c9;
   color: #fff;
 }
 
@@ -152,7 +152,7 @@
 }
 
 .button-resource {
-  background: #111111;
+  background: #1929c9;
   color: #fff;
   border: 1px solid var(--accents-7);
   max-width: 100%;
@@ -172,7 +172,7 @@
 }
 
 .button-link {
-  background: #000;
+  background: #1929c9;
   color: #fff;
   border: none;
 }
@@ -188,7 +188,7 @@
 
 .heading {
   font-weight: 800;
-  color: #fff;
+  color: #1929c9;
   font-size: 24px;
   margin: var(--space-4x) 0;
   line-height: 1.4;

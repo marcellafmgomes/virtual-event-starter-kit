@@ -15,8 +15,8 @@
  */
 
 .background {
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: var(--sky);
   min-height: 100vh;
   min-height: var(--100vh);
   display: flex;
@@ -91,7 +91,7 @@
   text-transform: uppercase;
   padding: var(--space-4x);
   font-size: 14px;
-  color: var(--secondary-color);
+  color: #fff;
   font-weight: 700;
   letter-spacing: -0.05em;
   height: 100%;
@@ -103,11 +103,11 @@
 .tab:hover,
 .tab:focus,
 .tab:active {
-  color: #fff;
+  color: var(--brand);
 }
 
 .tab-active {
-  color: #fff;
+  color: var(--brand);
   background: linear-gradient(90deg, var(--brand), var(--brand)) left bottom transparent no-repeat;
   background-size: 100% 1px;
 }

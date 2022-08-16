@@ -25,7 +25,7 @@
   margin: 1rem 0;
 }
 .pop-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(f, f, f, 0.7);
   position: fixed;
   inset: 0;
 }
@@ -47,7 +47,7 @@
 }
 .accept-btn {
   border-radius: 8px;
-  background: #702ec2;
+  background: #fe8fff;
   margin-left: 1rem;
 }
 .reject-btn {

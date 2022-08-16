@@ -41,10 +41,6 @@ export const REPO = 'https://github.com/vercel/virtual-event-starter-kit';
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
   {
-    name: 'SAUDHE 2022',
-    route: '/'
-  },
-  {
     name: 'Cronograma',
     route: '/schedule'
   },

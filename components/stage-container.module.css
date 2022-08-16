@@ -58,7 +58,7 @@
 .stageName {
   display: flex;
   font-size: 24px;
-  color: #fff;
+  color: #000000;
   line-height: 1.15;
   letter-spacing: -0.05em;
   font-weight: 800;
@@ -68,7 +68,7 @@
 .button {
   border-radius: var(--space-2x);
   border: none;
-  color: #fff;
+  color: #000000;
   background: #3362df;
   cursor: pointer;
   font-family: inherit;
@@ -90,7 +90,7 @@
 .button:hover,
 .button:focus {
   background: black;
-  color: #fff;
+  color: #000000;
 }
 
 .button > svg {

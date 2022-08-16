@@ -28,7 +28,7 @@
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(f, f, f, 0.9);
   position: fixed;
   inset: 0;
 }

@@ -33,7 +33,7 @@
 }
 
 .backlink:hover {
-  color: #fff;
+  color: #1929c9;
 }
 
 .speaker-details {
@@ -50,7 +50,7 @@
 }
 
 .bio {
-  color: var(--accents-2);
+  color: var(--accents-4);
   max-width: 800px;
 }
 
@@ -76,7 +76,7 @@
 
   .talk-details {
     padding-left: var(--space-8x);
-    color: var(--accents-2);
+    color: var(--accents-5);
   }
 
   .image {
@@ -87,18 +87,18 @@
 
 .name {
   font-weight: 800;
-  color: #fff;
+  color: #1929c9;
   font-size: 56px;
   margin: 0;
   line-height: 1.2;
 }
 
 .company {
-  color: #fff;
+  color: #1929c9;
 }
 
 .company:hover {
-  color: #fff;
+  color: #1929c9;
 }
 
 .title {
@@ -110,13 +110,13 @@
 .bio-header {
   font-size: 30px;
   letter-spacing: -0.05em;
-  color: #fff;
+  color: #1929c9;
 }
 
 .socials-header {
   font-size: 24px;
   letter-spacing: -0.05em;
-  color: #fff;
+  color: #1929c9;
   margin-bottom: var(--space-4x);
 }
 

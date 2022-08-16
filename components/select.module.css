@@ -38,7 +38,7 @@
   appearance: none;
   border: none;
   cursor: default;
-  color: #fff;
+  color: #000000;
   font-size: 14px;
   font-family: inherit;
   width: 100%;
@@ -62,7 +62,7 @@
 
 .select option {
   background-color: black;
-  color: #fff;
+  color: #000000;
 }
 
 .arrow {
@@ -77,5 +77,5 @@
 }
 
 .arrow > svg {
-  color: #fff;
+  color: #000000;
 }

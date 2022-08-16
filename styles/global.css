@@ -46,26 +46,26 @@
   --text-lg: 18px;
   --text-xl: 24px;
 
-  --accents-1: #fafafa;
-  --accents-2: #eaeaea;
-  --accents-3: #999999;
-  --accents-4: #888888;
-  --accents-5: #666666;
-  --accents-6: #444444;
-  --accents-7: #333333;
-  --accents-8: #111111;
+  --accents-1: #fdeefe;
+  --accents-2: #edeefd;
+  --accents-3: #c9cdf8;
+  --accents-4: #8089ef;
+  --accents-5: #5c68eb;
+  --accents-6: #4957e9;
+  --accents-7: #2535e4;
+  --accents-8: #1929c9;
 
-  --gray: #252729;
-  --secondary-color: #8a8f98;
-  --sidebar: #0e0e10;
-  --brand: #702ec2;
-  --brand-lighter: #d6ccee;
-  --brand-light: #8465cb;
-  --brand-dark: #472a84;
-  --gray1: #222222;
+  --sky: #557cff;
+  --secondary-color: #969de7;
+  --sidebar: #2c5df5;
+  --brand: #fe8fff;
+  --brand-lighter: #fee9ff;
+  --brand-light: #feaaff;
+  --brand-dark: ##ef5fff;
+  --sky1: #356cff;
   --error: #ea3323;
 
-  --foreground: #fff;
+  --foreground: #2745e4;
 
   --header-height: 72px;
   --video-list-height: 150px;
@@ -205,7 +205,7 @@ input {
   z-index: 5;
   height: 100px;
   border-radius: 0.5rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), transparent);
+  background: linear-gradient(0deg, rgba(25, 41, 201, 0.8), transparent);
 }
 
 .preview-controls {
@@ -230,7 +230,7 @@ input {
 
 .show-overlay {
   transition: all 0.5s ease;
-  box-shadow: rgb(33 33 33 / 80%) 0px 0px 1px 2px, rgb(0 0 0 / 75%) 0px 0px 0px 5000px;
+  box-shadow: rgb(44 93 245 / 80%) 0px 0px 1px 2px, rgb(25 41 201  / 75%) 0px 0px 0px 5000px;
 }
 
 .fade-in {
@@ -322,11 +322,11 @@ input {
 }
 
 .guest-badge {
-  border: 1px solid #8465cb;
+  border: 1px solid #ef5fff;
 }
 
 .attendee-badge {
-  border: 1px solid #8465cb;
+  border: 1px solid #ef5fff;
 }
 
 .tabs button[data-state='active'] {
@@ -347,10 +347,10 @@ input {
   }
   100% {
     opacity: 1;
-    translate: (-50%, -50%) scale(1);
+    translate: var(-50%, -50%) scale(1);
   }
 }
 
 .icon-btn:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.8);
 }

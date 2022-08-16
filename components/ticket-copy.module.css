@@ -60,7 +60,7 @@
   position: relative;
   border-radius: var(--space-2x);
   overflow: hidden;
-  background: var(--gray);
+  background: var(--sky);
 }
 
 @media (min-width: 768px) {
@@ -135,7 +135,7 @@
 
 .fade {
   position: absolute;
-  background: linear-gradient(90deg, rgba(37, 39, 41, 0%) 0%, #252729 100%);
+  background: linear-gradient(90deg, rgba(44, 93, 245, 90%) 0%, #1929c9 100%);
   top: 0;
   bottom: 0;
   right: 0px;
@@ -192,7 +192,7 @@
     right: 50px;
     top: 0px;
     bottom: 0px;
-    background: linear-gradient(90deg, rgba(37, 39, 41, 0%) 0px, #252729 40px);
+    background: linear-gradient(90deg, rgba(44, 93, 245, 90%) 0px, #1929c9 40px);
     padding-left: 50px;
   }
   .copy-button {

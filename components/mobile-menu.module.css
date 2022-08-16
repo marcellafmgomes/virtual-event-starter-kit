@@ -21,7 +21,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: black;
+  background: var( --accents-8 );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,14 +38,14 @@
   font-size: var(--space-8x);
   letter-spacing: -0.05em;
   font-weight: 800;
-  color: #fff;
+  color: var( --accents-8 );
   margin-bottom: var(--space-4x);
   line-height: 1.5;
   width: fit-content;
 }
 
 .nav-item:focus {
-  outline: 1px dotted #fff;
+  outline: 1px dotted ( --accents-8 );
 }
 
 .nav-active {

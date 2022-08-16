@@ -89,7 +89,7 @@
 }
 
 .input-label {
-  background-color: var(--gray);
+  background-color: var(--sky);
   border-radius: var(--space-2x);
   border: 1px solid transparent;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -97,7 +97,7 @@
 }
 
 .input-label.focused {
-  background-color: #33373c;
+  background-color: var(--accents-4);
 }
 
 .input-label.error {
@@ -131,15 +131,15 @@
   height: 56px;
   margin-top: var(--space-4x);
   border-radius: var(--space-2x);
-  border: 1px solid #fff;
-  background: #fff;
+  border: 1px solid ( --accents-8 );
+  background: var( --accents-8 );
   cursor: pointer;
   font-family: inherit;
   font-size: var(--text-md);
   letter-spacing: -0.02em;
   outline: none;
   font-weight: 500;
-  color: #000;
+  color: #ffffff;
   transition: background-color 0.2s ease, color 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -163,20 +163,20 @@
 }
 
 .submit.default:hover {
-  background: black;
+  background: var( --accents-8 );
   color: #fff;
 }
 
 .submit.error:hover {
-  background: #000;
+  background: var( --accents-8 );
   color: #fff;
 }
 
 .submit.default:disabled,
 .submit.default:disabled:hover {
   cursor: default;
-  background: var(--gray);
-  border-color: var(--gray);
+  background: var(--sky);
+  border-color: var(--sky);
   color: #fff;
   justify-content: flex-start;
   overflow: hidden;

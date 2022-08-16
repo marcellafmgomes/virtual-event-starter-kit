@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         foreground: 'var(--foreground)',
-        gray: {
+        sky: {
           100: 'var(--accents-1)',
           200: 'var(--accents-2)',
           300: 'var(--accents-3)',
@@ -14,8 +14,8 @@ module.exports = {
           700: 'var(--accents-7)',
           800: 'var(--accents-8)'
         },
-        'gray-main': 'var(--gray)',
-        'gray-base': 'var(--gray1)',
+        'sky-main': 'var(--sky)',
+        'sky-base': 'var(--sky1)',
         secondary: 'var(--secondary-color)',
         sidebar: 'var(--sidebar)',
         brand: {

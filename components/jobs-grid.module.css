@@ -134,25 +134,25 @@
 .link {
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #000000;
   font-weight: bold;
   font-size: var(--text-md);
   margin: 0;
 }
 
 .link:hover {
-  color: #fff;
+  color: #000000;
 }
 
 .icon {
-  color: #fff;
+  color: #000000;
   margin-left: var(--space);
 }
 
 .button {
   border-radius: var(--space-2x);
   border: none;
-  color: #fff;
+  color: #000000;
   background: var(--brand);
   cursor: pointer;
   font-family: inherit;

@@ -16,11 +16,11 @@
 
 .card {
   border-radius: var(--space-2x);
-  background: #111111;
+  background: var(--sky);
   display: flex;
   flex-direction: column;
   background-clip: content-box, border-box;
-  background-image: linear-gradient(#111111, #111111), linear-gradient(to right, #333333, #333333);
+  background-image: linear-gradient(var(--sky), var(--sky)), linear-gradient(to right, var(--sky1), var(--sky1));
   padding: 1px;
   margin-bottom: 30px;
   cursor: pointer;
@@ -29,8 +29,8 @@
 .card:hover,
 .card:focus {
   outline: none;
-  background-image: linear-gradient(#111111, #111111),
-    linear-gradient(to right, var(--brand), var(--brand));
+  background-image: linear-gradient(#fe8fff, #fe8fff),
+    linear-gradient(to right, #ef5fff, #ef5fff);
 }
 
 .grid {
@@ -56,7 +56,7 @@
 
 .cardBody {
   padding: var(--space-4x);
-  color: var(--secondary-color);
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

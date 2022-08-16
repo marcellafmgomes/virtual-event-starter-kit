@@ -50,11 +50,11 @@
 }
 
 .input::placeholder {
-  color: var(--secondary-color);
+  color: #fff;
 }
 
 .input-label {
-  background-color: var(--gray);
+  background-color: var(--sky);
   border-radius: var(--space-2x);
   border: 1px solid transparent;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -62,7 +62,7 @@
 }
 
 .input-label.focused {
-  background-color: #33373c;
+  background-color: var(--sky1);
 }
 
 .input-label.error {
@@ -132,8 +132,8 @@
 
 .submit.default:hover,
 .submit.default:focus {
-  background: black;
-  color: var(--brand);
+  background: #ef5fff;
+  color: #fff;
 }
 
 .submit.default.generate-with-github:hover path,
@@ -143,7 +143,7 @@
 
 .submit.error:hover,
 .submit.error:focus {
-  background: #000;
+  background: red;
   color: #fff;
 }
 
@@ -151,9 +151,9 @@
 .submit.default:disabled:hover,
 .submit.default:disabled:focus {
   cursor: default;
-  background: var(--gray);
-  border-color: var(--gray);
-  color: #fff;
+  background: var(--sky);
+  border-color: var(--sky);
+  color: #000000;
   justify-content: flex-start;
   overflow: hidden;
 }
@@ -161,7 +161,7 @@
 .submit.default.generate-with-github:disabled path,
 .submit.default.generate-with-github:disabled:hover path,
 .submit.default.generate-with-github:disabled:focus path {
-  fill: #fff;
+  fill: #000000;
 }
 
 .submit.default.generate-with-github.not-allowed:disabled {

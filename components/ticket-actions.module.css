@@ -16,9 +16,9 @@
 
 .button {
   border-radius: var(--space-2x);
-  border: 1px solid #fff;
-  color: #000;
-  background: #fff;
+  border: 1px solid #1929c9;
+  color: #ffffff;
+  background: #1929c9;
   cursor: pointer;
   font-family: inherit;
   font-size: var(--text-md);
@@ -51,7 +51,7 @@
 
 .button:hover,
 .button:focus {
-  background: black;
+  background: #1929c9;
   color: #fff;
 }
 

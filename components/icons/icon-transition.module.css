@@ -25,19 +25,19 @@
 }
 
 .stroke-white {
-  stroke: #fff;
+  stroke: #000000;
   transition: stroke fill 0.2s ease;
 }
 
 :global(.icon-button:hover) .fill-black,
 :global(.icon-button:focus) .fill-black {
-  fill: #fff;
+  fill: #000000;
   transition: stroke fill 0.2s ease;
 }
 
 :global(.icon-button:hover) .stroke-black,
 :global(.icon-button:focus) .stroke-black {
-  stroke: #fff;
+  stroke: #000000;
   transition: stroke fill 0.2s ease;
 }
 
