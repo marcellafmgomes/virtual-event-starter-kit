@@ -18,6 +18,7 @@ import { SAMPLE_TICKET_NUMBER } from '@lib/constants';
 
 import * as redisApi from './db-providers/redis';
 import * as supabaseApi from './db-providers/supabase';
+import { UserData } from './hooks/use-conf-data';
 
 let dbApi: {
   createUser: (id: string, email: string, name:string) => Promise<ConfUser>;
@@ -26,7 +27,7 @@ let dbApi: {
   getUserById: (id: string) => Promise<ConfUser>;
   getTicketNumberByUserId: (id: string) => Promise<string | null>;
   createGitHubUser: (user: any) => Promise<string>;
-  updateUserWithGitHubUser: (id: string, token: string, ticketNumber: string) => Promise<string>;
+  updateUserWithGitHubUser: (id: string, token: string, ticketNumber: string) => Promise<UserData>;
 };
 
 if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_SECRET) {
@@ -45,7 +46,7 @@ if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_S
     getUserById: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as ConfUser),
     getTicketNumberByUserId: () => Promise.resolve(null),
     createGitHubUser: () => Promise.resolve(''),
-    updateUserWithGitHubUser: () => Promise.resolve('')
+    updateUserWithGitHubUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as UserData)
   };
 }
 
@@ -77,6 +78,6 @@ export async function updateUserWithGitHubUser(
   id: string,
   token: string,
   ticketNumber: string
-): Promise<string> {
+): Promise<UserData> {
   return dbApi.updateUserWithGitHubUser(id, token, ticketNumber);
 }

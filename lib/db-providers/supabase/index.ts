@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { UserData } from '@lib/hooks/use-conf-data';
 import { ConfUser } from '@lib/types';
 import { createClient } from '@supabase/supabase-js';
 
@@ -38,9 +39,10 @@ export async function getAllUsers(): Promise<ConfUser[]> {
     .from<ConfUser>('users')
     .select('id, email, ticketNumber, name, username, createdAt');
   if (error) {
-    throw new Error(error.message);
+    console.log(new Error(error.message).message) ;    
+    return [] as ConfUser[];
   }
-  return data ?? [];
+  return data ?? [] as ConfUser[];
 }
 
 export async function getUserById(id: string): Promise<ConfUser> {
@@ -49,16 +51,22 @@ export async function getUserById(id: string): Promise<ConfUser> {
     .select('name, username, createdAt')
     .eq('id', id)
     .single();
-  if (error) throw new Error(error.message);
+  if (error) {
+    console.log(new Error(error.message).message) ;
+    return {} as ConfUser;
+  }
 
-  return data ?? {};
+  return data ?? {} as ConfUser;
 }
 
 export async function createUser(id: string, email: string, name?: string): Promise<ConfUser> {
   const { data, error } = await supabase!.from<ConfUser>('users').insert({ id, email, name }).single();
-  if (error) throw new Error(error.message);
+  if (error) {
+    console.log(new Error(error.message).message) ;
+    return {} as ConfUser;
+  }
 
-  return data ?? {};
+  return data ?? {} as ConfUser;
 }
 
 export async function getTicketNumberByUserId(id: string): Promise<string | null> {
@@ -73,24 +81,28 @@ export async function getTicketNumberByUserId(id: string): Promise<string | null
 
 export async function createGitHubUser(user: any): Promise<string> {
   const { data, error } = await supabase!.from('github_users').insert({ userData: user }).single();
-  if (error) throw new Error(error.message);
+  if (error) {
+    console.log(new Error(error.message).message) ;
+    return '';
+  }
 
-  return data.id;
+  return data.id ?? '';
 }
 
-export async function updateUserWithGitHubUser(id: string, token: string): Promise<string> {
+export async function updateUserWithGitHubUser(id: string, token: string): Promise<UserData> {
   const { data } = await supabase!.from('github_users').select('userData').eq('id', token).single();
   const { login: username, name } = data?.userData;
   if (!username) {
-    throw new Error('Invalid or expired token');
+    console.log(new Error('Invalid or expired token').message) ;
+    return {} as ConfUser;
   }
 
-  const { error } = await supabase!
+  const result = await supabase!
     .from<ConfUser>('users')
     .update({ username, name })
     .eq('id', id)
     .single();
-  if (error) console.log(error.message);
+  if (result?.error) console.log(result?.error.message);
 
-  return id;
+  return result?.data ?? {} as UserData;
 }

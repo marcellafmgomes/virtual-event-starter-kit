@@ -16,6 +16,7 @@
 import { ConfUser } from '@lib/types';
 import { nanoid } from 'nanoid';
 import Redis from 'ioredis';
+import { UserData } from '@lib/hooks/use-conf-data';
 
 const redis =
   process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_SECRET
@@ -92,13 +93,13 @@ export async function createGitHubUser(user: any): Promise<string> {
 }
 
 export async function updateUserWithGitHubUser(
-  id: string,
-  token: string,
-  ticketNumber: string
-): Promise<string> {
+  id: string | null,
+  token: string | null,
+  ticketNumber: string | null
+): Promise<UserData> {
   const [username, name] = await redis!.hmget(`github-user:${token}`, 'login', 'name');
   if (!username) {
-    throw new Error('Invalid or expired token');
+    console.log(new Error('Invalid or expired token').message)  ;
   }
 
   const key = `id:${id}`;
@@ -106,12 +107,12 @@ export async function updateUserWithGitHubUser(
 
   await redis!
     .multi()
-    .hsetnx(key, 'username', username)
+    .hsetnx(key, 'username', username || '')
     .hsetnx(key, 'name', name || '')
     // Also save username → data pair
     .hsetnx(userKey, 'name', name || '')
-    .hsetnx(userKey, 'ticketNumber', ticketNumber)
+    .hsetnx(userKey, 'ticketNumber', ticketNumber || '')
     .exec();
 
-  return id;
+  return {id, ticketNumber, username, name} as UserData;
 }
