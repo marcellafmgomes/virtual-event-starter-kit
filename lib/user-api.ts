@@ -25,7 +25,7 @@ export async function register(email: string, token?: string, name?: string) {
   });
 }
 
-export async function saveGithubToken({ id, token }: { id?: string; token: string }) {
+export async function saveGithubToken({ id, token }: { id: string | null; token: string }) {
   return await fetch('/api/save-github-token', {
     method: 'POST',
     headers: {
