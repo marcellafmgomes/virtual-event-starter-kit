@@ -65,49 +65,37 @@ export default function Ticket({ id, username, name, ticketNumber, sharePage }: 
       <div ref={divRef}>
         <div className={styles['ticket-text']}>
           <h2 className={cn(styles.hero, styleUtils.appear, styleUtils['appear-first'])}>
-            {
-              name ? (
-                <>{name}’s Ticket</>
-              ) : (
-                <>{SITE_NAME}</>
-              )
-          }
+            {name ? <>{name}’s Ticket</> : <>{SITE_NAME}</>}
           </h2>
-          <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>           
-              <>
-                Veja a transmissão ao vivo {name ?? ''} em {DATE}.
-              </>        
+          <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>
+            <>
+              Veja a transmissão ao vivo {name ?? ''} em {DATE}.
+            </>
           </p>
         </div>
-
       </div>
       <div className={styles['ticket-visual-wrapper']}>
         <div
           ref={ticketRef}
           className={cn(styles['ticket-visual'], styleUtils.appear, styleUtils['appear-fourth'])}
         >
-          <TicketVisual
-            username={username}
-            name={name}
-            ticketNumber={ticketNumber}
-          />
+          <TicketVisual username={username} name={name} ticketNumber={ticketNumber} />
         </div>
 
-          <>
-            {username ? (
-              <div>
-                <div className={styles['ticket-actions']}>
-                  <TicketActions username={username} id={id} />
-                </div>
-                <div className={styles['ticket-copy']}>
-                  <TicketCopy username={username} />
-                </div>
+        <>
+          {username ? (
+            <div>
+              <div className={styles['ticket-actions']}>
+                <TicketActions username={username} id={id} />
               </div>
-            ) : (
-              <div className={styles['ticket-actions-placeholder']} />
-            )}
-          </>
-
+              <div className={styles['ticket-copy']}>
+                <TicketCopy username={username} />
+              </div>
+            </div>
+          ) : (
+            <div className={styles['ticket-actions-placeholder']} />
+          )}
+        </>
       </div>
     </div>
   );

@@ -37,11 +37,7 @@ export default function TicketImage() {
             username={query.username ? query.username.toString() : ''}
             ticketNumber={parseInt(query.ticketNumber.toString(), 10)}
             name={
-              query.name
-                ? query.name?.toString()
-                : query.username
-                ? query.username.toString()
-                : ''
+              query.name ? query.name?.toString() : query.username ? query.username.toString() : ''
             }
           />
         </div>

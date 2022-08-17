@@ -24,13 +24,12 @@ export default async function TicketImages(req: NextApiRequest, res: NextApiResp
   let url: string;
   const users = await getAllUsers();
   const { username } = req.query || {};
-  if (username ) {
+  if (username) {
     const usernameString = username.toString();
     const currentUser = users.find((u: ConfUser) => u.username === usernameString) || null;
     const nameString = currentUser?.name || '';
     const ticketNumberString = currentUser?.ticketNumber.toString() || '';
-    url = `${SITE_URL}/ticket-image?username=${encodeURIComponent(
-      usernameString)}
+    url = `${SITE_URL}/ticket-image?username=${encodeURIComponent(usernameString)}
       &ticketNumber=${encodeURIComponent(ticketNumberString)}
       &name=${encodeURIComponent(nameString)}`;
 

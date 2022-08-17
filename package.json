@@ -1,6 +1,6 @@
 {
-  "name": "virtual-event-starter-kit",
-  "description": "Starter kit for your virtual event.",
+  "name": "saudhe",
+  "description": "Site do Seminário de Administração Pública, Direitos Humanos e Servidores",
   "private": true,
   "repository": "vercel/virtual-event-starter-kit",
   "author": "Vercel Inc.",
@@ -13,7 +13,8 @@
     "dev": "next",
     "start": "next start",
     "build": "next build",
-    "license": "addlicense -l apache -c 'Vercel Inc.' components/**/* lib/**/* pages/**/* styles/**/* *.ts *.js"
+    "license": "addlicense -l apache -c 'Vercel Inc.' components/**/* lib/**/* pages/**/* styles/**/* *.ts *.js",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@100mslive/react-icons": "^0.0.6",

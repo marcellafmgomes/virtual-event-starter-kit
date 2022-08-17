@@ -21,7 +21,7 @@ import * as supabaseApi from './db-providers/supabase';
 import { UserData } from './hooks/use-conf-data';
 
 let dbApi: {
-  createUser: (id: string, email: string, name:string) => Promise<ConfUser>;
+  createUser: (id: string, email: string, name: string) => Promise<ConfUser>;
   getUserByUsername: (username: string) => Promise<ConfUser>;
   getAllUsers: () => Promise<ConfUser[]>;
   getUserById: (id: string) => Promise<ConfUser>;
@@ -46,11 +46,12 @@ if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_S
     getUserById: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as ConfUser),
     getTicketNumberByUserId: () => Promise.resolve(null),
     createGitHubUser: () => Promise.resolve(''),
-    updateUserWithGitHubUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as UserData)
+    updateUserWithGitHubUser: () =>
+      Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER } as UserData)
   };
 }
 
-export async function createUser(id: string, email: string, name:string): Promise<ConfUser> {
+export async function createUser(id: string, email: string, name: string): Promise<ConfUser> {
   return dbApi.createUser(id, email, name);
 }
 

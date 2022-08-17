@@ -31,14 +31,12 @@
   max-width: var(--talk-card-width, 270px);
   padding: 1px;
   background-clip: content-box, border-box;
-  background-image: linear-gradient(var(--sky), var(--sky)), linear-gradient(to right, var(--sky1), var(--sky1));
-
-
+  background-image: linear-gradient(var(--sky), var(--sky)),
+    linear-gradient(to right, var(--sky1), var(--sky1));
 }
 .card:hover {
   background-image: linear-gradient(var(--brand), var(--brand)),
-  linear-gradient(to right, var(--brand-dark), var(--brand-dark));  
-
+    linear-gradient(to right, var(--brand-dark), var(--brand-dark));
 }
 
 .is-live {
@@ -93,5 +91,5 @@
 
 .link:hover .card:not(.is-live) {
   background-image: linear-gradient(var(--brand), var(--brand)),
-  linear-gradient(to right, var(--brand-dark), var(--brand-dark));
+    linear-gradient(to right, var(--brand-dark), var(--brand-dark));
 }

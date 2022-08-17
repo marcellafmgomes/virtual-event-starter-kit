@@ -15,14 +15,7 @@ const useVideo = (trackId: HMSPeerID) => {
         }
       }
     })();
-  }, [
-    videoRef,
-    track?.id,
-    track?.enabled,
-    track?.deviceID,
-    track?.plugins,
-    actions,
-  ]);
+  }, [videoRef, track?.id, track?.enabled, track?.deviceID, track?.plugins, actions]);
   return videoRef;
 };
 

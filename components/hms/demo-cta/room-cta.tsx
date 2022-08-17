@@ -16,9 +16,7 @@ const RoomCta = () => {
     if (router.isReady) {
       stageId = router.query.slug as string;
     }
-    navigator.clipboard.writeText(
-      `${window.location.host}`
-    );
+    navigator.clipboard.writeText(`${window.location.host}`);
     if (!copied) {
       setCopied(true);
       setTimeout(() => {
@@ -39,11 +37,8 @@ const RoomCta = () => {
           Invite
         </Button>
       </div>
-
     </div>
   );
 };
 
 export default RoomCta;
-
-

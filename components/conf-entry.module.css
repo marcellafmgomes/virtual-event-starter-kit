@@ -131,8 +131,8 @@
   height: 56px;
   margin-top: var(--space-4x);
   border-radius: var(--space-2x);
-  border: 1px solid ( --accents-8 );
-  background: var( --accents-8 );
+  border: 1px solid (--accents-8);
+  background: var(--accents-8);
   cursor: pointer;
   font-family: inherit;
   font-size: var(--text-md);
@@ -163,12 +163,12 @@
 }
 
 .submit.default:hover {
-  background: var( --accents-8 );
+  background: var(--accents-8);
   color: #edf0f1;
 }
 
 .submit.error:hover {
-  background: var( --accents-8 );
+  background: var(--accents-8);
   color: #edf0f1;
 }
 

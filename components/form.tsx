@@ -161,7 +161,7 @@ export default function Form({ sharePage }: Props) {
       })}
       onSubmit={onSubmit}
     >
-        <div className={styles['form-row']}>
+      <div className={styles['form-row']}>
         <label
           htmlFor="name-input-field"
           className={cn(styles['input-label'], {
@@ -179,7 +179,7 @@ export default function Form({ sharePage }: Props) {
             onBlur={() => setFocused(false)}
             placeholder="Digite seu nome"
             aria-label="Seu nome"
-            required            
+            required
           />
         </label>
       </div>
@@ -207,12 +207,12 @@ export default function Form({ sharePage }: Props) {
       </div>
       <div className={styles['form-row']}>
         <button
-            type="submit"
-            className={cn(styles.submit, styles.register, styles[formState])}
-            disabled={formState === 'loading'}
-          >
-            {formState === 'loading' ? <LoadingDots size={4} /> : <>Registrar / Gerar Cartão </>}
-          </button>        
+          type="submit"
+          className={cn(styles.submit, styles.register, styles[formState])}
+          disabled={formState === 'loading'}
+        >
+          {formState === 'loading' ? <LoadingDots size={4} /> : <>Registrar / Gerar Cartão </>}
+        </button>
       </div>
       <Captcha ref={captchaRef} onVerify={handleRegister} />
     </form>

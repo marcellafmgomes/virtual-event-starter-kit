@@ -35,14 +35,14 @@ export async function getUserByUsername(username: string): Promise<ConfUser> {
 }
 
 export async function getAllUsers(): Promise<ConfUser[]> {
-  const { data,error } = await supabase!
+  const { data, error } = await supabase!
     .from<ConfUser>('users')
     .select('id, email, ticketNumber, name, username, createdAt');
   if (error) {
-    console.log(new Error(error.message).message) ;    
+    console.log(new Error(error.message).message);
     return [] as ConfUser[];
   }
-  return data ?? [] as ConfUser[];
+  return data ?? ([] as ConfUser[]);
 }
 
 export async function getUserById(id: string): Promise<ConfUser> {
@@ -52,21 +52,24 @@ export async function getUserById(id: string): Promise<ConfUser> {
     .eq('id', id)
     .single();
   if (error) {
-    console.log(new Error(error.message).message) ;
+    console.log(new Error(error.message).message);
     return {} as ConfUser;
   }
 
-  return data ?? {} as ConfUser;
+  return data ?? ({} as ConfUser);
 }
 
 export async function createUser(id: string, email: string, name?: string): Promise<ConfUser> {
-  const { data, error } = await supabase!.from<ConfUser>('users').insert({ id, email, name }).single();
+  const { data, error } = await supabase!
+    .from<ConfUser>('users')
+    .insert({ id, email, name })
+    .single();
   if (error) {
-    console.log(new Error(error.message).message) ;
+    console.log(new Error(error.message).message);
     return {} as ConfUser;
   }
 
-  return data ?? {} as ConfUser;
+  return data ?? ({} as ConfUser);
 }
 
 export async function getTicketNumberByUserId(id: string): Promise<string | null> {
@@ -82,7 +85,7 @@ export async function getTicketNumberByUserId(id: string): Promise<string | null
 export async function createGitHubUser(user: any): Promise<string> {
   const { data, error } = await supabase!.from('github_users').insert({ userData: user }).single();
   if (error) {
-    console.log(new Error(error.message).message) ;
+    console.log(new Error(error.message).message);
     return '';
   }
 
@@ -93,7 +96,7 @@ export async function updateUserWithGitHubUser(id: string, token: string): Promi
   const { data } = await supabase!.from('github_users').select('userData').eq('id', token).single();
   const { login: username, name } = data?.userData;
   if (!username) {
-    console.log(new Error('Invalid or expired token').message) ;
+    console.log(new Error('Invalid or expired token').message);
     return {} as ConfUser;
   }
 
@@ -104,5 +107,5 @@ export async function updateUserWithGitHubUser(id: string, token: string): Promi
     .single();
   if (result?.error) console.log(result?.error.message);
 
-  return result?.data ?? {} as UserData;
+  return result?.data ?? ({} as UserData);
 }

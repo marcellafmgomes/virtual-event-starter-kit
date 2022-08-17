@@ -30,15 +30,12 @@ type Props = {
 };
 
 export default function TicketShare({ user }: Props) {
-
-  const meta =
-      {
-        title: `${user.name}’s ${SITE_NAME} Ticket`,
-        description: META_DESCRIPTION,
-        image: `/api/ticket-images/${user.username}`,
-        url: `${SITE_URL}/tickets/${user.username}`
-      }
-
+  const meta = {
+    title: `${user.name}’s ${SITE_NAME} Ticket`,
+    description: META_DESCRIPTION,
+    image: `/api/ticket-images/${user.username}`,
+    url: `${SITE_URL}/tickets/${user.username}`
+  };
 
   return (
     <Page meta={meta}>
@@ -77,7 +74,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   };
 };
 
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const users = await getAllUsers();
   const usernames = users.map((user: ConfUser) => ({ params: { username: user.username } }));
@@ -86,5 +82,3 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: 'blocking'
   };
 };
-
-

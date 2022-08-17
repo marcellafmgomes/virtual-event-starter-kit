@@ -130,7 +130,7 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
               />
             )}
           </label>
-          </div>
+        </div>
         <div className={styles['form-row']}>
           <label
             htmlFor="email-input-field"
@@ -157,8 +157,8 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
               />
             )}
           </label>
-          </div>
-          <div className={styles['form-row']}>
+        </div>
+        <div className={styles['form-row']}>
           <button
             type="submit"
             className={cn(styles.submit, styles.register, styles[formState])}
