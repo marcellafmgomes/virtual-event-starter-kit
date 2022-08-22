@@ -38,7 +38,7 @@
   padding-left: 15px;
   padding-right: 15px;
   font-size: var(--text-md);
-  color: #edf0f1;
+  color: var(--text-color);
   font-family: inherit;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .input::placeholder {
-  color: #edf0f1;
+  color: var(--text-color);
 }
 
 .input-label {
@@ -133,7 +133,7 @@
 .submit.default:hover,
 .submit.default:focus {
   background: var(--brand-dark);
-  color: #edf0f1;
+  color: var(--text-color);
 }
 
 .submit.default.generate-with-github:hover path,
@@ -144,7 +144,7 @@
 .submit.error:hover,
 .submit.error:focus {
   background: red;
-  color: #edf0f1;
+  color: var(--text-color);
 }
 
 .submit.default:disabled,

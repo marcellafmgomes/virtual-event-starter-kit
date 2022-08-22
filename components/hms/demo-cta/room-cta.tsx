@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
-import { CrossIcon, PersonIcon } from '@100mslive/react-icons';
-import DemoModal from '../demo-modal';
-import InviteIcon from '@components/icons/icon-invite';
-import { useHMSStore, selectLocalPeerRole } from '@100mslive/react-sdk';
+import { selectLocalPeerRole, useHMSStore } from '@100mslive/react-sdk';
 import { useRouter } from 'next/router';
-import Button from '../Button';
+import { useState } from 'react';
 
 const RoomCta = () => {
   const role = useHMSStore(selectLocalPeerRole);
@@ -32,10 +27,6 @@ const RoomCta = () => {
             Copiado o link para o convite!
           </p>
         ) : null}
-        <Button variant="secondary" className="h-[40px]" onClick={() => copy()}>
-          <InviteIcon className="mr-2" />
-          Invite
-        </Button>
       </div>
     </div>
   );

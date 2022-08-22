@@ -40,7 +40,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Inter;
-  background: #111111;
+  background: var(--background);
   border-radius: 8px;
   padding: 24px;
   color: white;

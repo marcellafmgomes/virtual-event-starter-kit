@@ -33,7 +33,7 @@
 }
 
 .backlink:hover {
-  color: #1929c9;
+  color: var(--text-color);
 }
 
 .speaker-details {
@@ -50,7 +50,7 @@
 }
 
 .bio {
-  color: var(--accents-4);
+  color: var(--secondary-color);
   max-width: 800px;
 }
 
@@ -87,36 +87,43 @@
 
 .name {
   font-weight: 800;
-  color: #1929c9;
+  color: var(--text-color);
   font-size: 56px;
   margin: 0;
   line-height: 1.2;
 }
 
 .company {
-  color: #1929c9;
+  color: var(--text-color);
 }
 
 .company:hover {
-  color: #1929c9;
+  color: var(--text-color);
 }
 
 .title {
   margin-top: 0;
   margin-bottom: 24px;
   font-size: 20px;
+  color: var(--secondary-color);
 }
 
 .bio-header {
   font-size: 30px;
   letter-spacing: -0.05em;
-  color: #1929c9;
+  color: var(--text-color);
+}
+
+.socials-container {
+  font-size: 24px;
+  letter-spacing: -0.05em;
+  margin-right: var(--space-4x);
 }
 
 .socials-header {
   font-size: 24px;
   letter-spacing: -0.05em;
-  color: #1929c9;
+  color: var(--text-color);
   margin-bottom: var(--space-4x);
 }
 

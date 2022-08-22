@@ -16,20 +16,20 @@
 
 import { GetStaticProps } from 'next';
 
+import Header from '@components/header';
+import Layout from '@components/layout';
 import Page from '@components/page';
 import Schedule from '@components/schedule';
-import Layout from '@components/layout';
-import Header from '@components/header';
 
-import { getAllStages } from '@lib/cms-api';
-import { Stage } from '@lib/types';
+import { getAllSchedules } from '@lib/cms-api';
 import { META_DESCRIPTION } from '@lib/constants';
+import { ScheduleType } from '@lib/types';
 
 type Props = {
-  allStages: Stage[];
+  allSchedules: ScheduleType[];
 };
 
-export default function SchedulePage({ allStages }: Props) {
+export default function SchedulePage({ allSchedules }: Props) {
   const meta = {
     title: 'Cronograma - Seminário de Administração Pública, Direitos Humanos e Servidores',
     description: META_DESCRIPTION
@@ -39,18 +39,18 @@ export default function SchedulePage({ allStages }: Props) {
     <Page meta={meta}>
       <Layout>
         <Header hero="Cronograma" description={meta.description} />
-        <Schedule allStages={allStages} />
+        <Schedule allSchedules={allSchedules} />
       </Layout>
     </Page>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const allStages = await getAllStages();
+  const allSchedules = await getAllSchedules();
 
   return {
     props: {
-      allStages
+      allSchedules
     },
     revalidate: 60
   };

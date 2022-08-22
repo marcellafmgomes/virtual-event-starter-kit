@@ -18,7 +18,7 @@
   width: 2000px;
   height: 1000px;
   background: #1929c9;
-  color: #edf0f1;
+  color: var(--text-color);
   overflow: hidden;
   display: flex;
   align-items: center;

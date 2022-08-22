@@ -82,11 +82,12 @@
 
 .card {
   border-radius: var(--space-2x);
-  background: #111111;
+  background: var(--background);
   display: flex;
   flex-direction: column;
   background-clip: content-box, border-box;
-  background-image: linear-gradient(#111111, #111111), linear-gradient(to right, #333333, #333333);
+  background-image: linear-gradient(var(--background), var(--background)),
+    linear-gradient(to right, #333333, #333333);
   padding: 1px;
   cursor: pointer;
 }
@@ -94,7 +95,7 @@
 .card:hover,
 .card:focus {
   outline: none;
-  background-image: linear-gradient(#111111, #111111),
+  background-image: linear-gradient(var(--background), var(--background)),
     linear-gradient(to right, var(--brand), var(--brand));
 }
 

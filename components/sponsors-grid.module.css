@@ -57,7 +57,7 @@
 
 .cardBody {
   padding: var(--space-4x);
-  color: #edf0f1;
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

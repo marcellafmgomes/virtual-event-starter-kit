@@ -3643,6 +3643,13 @@ react-resize-detector@^7.0.0:
     "@types/resize-observer-browser" "^0.1.6"
     lodash "^4.17.21"
 
+react-social-icons@^5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/react-social-icons/-/react-social-icons-5.14.0.tgz#3db266d400a3f313df63d1926e9ef556d7f46a82"
+  integrity sha512-E5pR2pIJM0vW1BhX7LdMlQS6MD2qOF8wdIm+PEfqFpW3Pn/VwLtbrjywE3/DG+rZ1YYM0GM8M11jaBxelbz/yQ==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-style-singleton@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-style-singleton/-/react-style-singleton-2.1.1.tgz#ce7f90b67618be2b6b94902a30aaea152ce52e66"

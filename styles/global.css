@@ -55,17 +55,19 @@
   --accents-7: #2535e4;
   --accents-8: #1929c9;
 
-  --sky: #557cff;
-  --secondary-color: #616262;
-  --sidebar: var(--sky);
-  --brand: #d37b3a;
-  --brand-lighter: #e7d1c0;
-  --brand-light: #f0af80;
-  --brand-dark: #b15412;
+  --sky: #031034;
+  --secondary-color: #fdeefe;
+  --sidebar: var(--sky1);
+  --brand: #17b692;
+  --brand-lighter: #cef7ed;
+  --brand-light: #95dfcd;
+  --brand-dark: #154e41;
   --sky1: #356cff;
   --error: #ea3323;
 
-  --foreground: #2745e4;
+  --foreground: #edf0f1;
+  --background: var(--sky);
+  --text-color: #e4e58e;
 
   --header-height: 72px;
   --video-list-height: 150px;
@@ -73,7 +75,7 @@
 
 html {
   line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+
   height: 100%;
   box-sizing: border-box;
   touch-action: manipulation;
@@ -111,7 +113,7 @@ body {
   background-color: var(--accents-8);
 }
 ::selection {
-  background-color: #0070f3;
+  background-color: var(--sky1);
   color: var(--foreground);
 }
 [role='grid']:focus {
@@ -314,11 +316,11 @@ input {
 }
 
 .speaker-badge {
-  border: 1px solid #e9a944;
+  border: 1px solid var(--brand);
 }
 
 .moderator-badge {
-  border: 1px solid #4e8ff7;
+  border: 1px solid var(--brand-light);
 }
 
 .guest-badge {

@@ -24,7 +24,12 @@ export type Speaker = {
   bio: string;
   title: string;
   slug: string;
+  linkedin: string;
   twitter: string;
+  instagram: string;
+  facebook: string;
+  tiktok: string;
+  youtube: string;
   github: string;
   company: string;
   talk: Talk;
@@ -44,6 +49,12 @@ export type Stage = {
   backstagePeers: string[];
 };
 
+export type ScheduleType = {
+  name: string;
+  slug: string;
+  talks: Talk[];
+};
+
 export type Talk = {
   title: string;
   description: string;
@@ -61,14 +72,12 @@ export type Sponsor = {
   description: string;
   slug: string;
   website: string;
-  callToAction: string;
-  callToActionLink: string;
   links: SponsorLink[];
   discord: string;
   tier: string;
+  tier_rank: number;
   cardImage: Image;
   logo: Image;
-  youtubeSlug: string;
 };
 
 export type SponsorLink = {

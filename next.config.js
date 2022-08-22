@@ -20,7 +20,7 @@ module.exports = {
       'www.datocms-assets.com',
       'localhost' // For Strapi
     ],
-    imageSizes: [24, 64, 300]
+    imageSizes: [24, 64, 300, 350]
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

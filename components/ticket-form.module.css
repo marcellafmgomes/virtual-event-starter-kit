@@ -72,10 +72,10 @@
 }
 
 .learn-more {
-  color: #edf0f1;
+  color: var(--text-color);
 }
 
 .learn-more:hover {
   text-decoration: underline;
-  color: #edf0f1;
+  color: var(--text-color);
 }

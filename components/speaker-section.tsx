@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-import Link from 'next/link';
-import Image from 'next/image';
-import cn from 'classnames';
-import GithubIcon from '@components/icons/icon-github';
 import { Speaker } from '@lib/types';
+import Image from 'next/image';
+import Link from 'next/link';
+import { SocialIcon } from 'react-social-icons';
 import styles from './speaker-section.module.css';
 
 const TwitterIcon = () => (
@@ -52,7 +51,7 @@ export default function SpeakerSection({ speaker }: Props) {
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          Back to speakers
+          Voltar para palestrantes
         </a>
       </Link>
       <div key={speaker.name} className={styles.container}>
@@ -77,35 +76,108 @@ export default function SpeakerSection({ speaker }: Props) {
             <h2 className={styles['bio-header']}>Bio</h2>
             <p className={styles.bio}>{speaker.bio}</p>
             <h3 className={styles['socials-header']}>Social Media</h3>
-            {speaker.twitter ? (
-              <a
-                aria-label="Twitter"
-                href={speaker.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon />
-              </a>
-            ) : (
-              <span className={styles.disabled}>
-                <TwitterIcon />
-              </span>
-            )}
-            {speaker.github ? (
-              <a
-                aria-label="GitHub"
-                className={styles.githubIcon}
-                href={speaker.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon color="#D8D8D8" size={24} />
-              </a>
-            ) : (
-              <span className={cn(styles.githubIcon, styles.disabled)}>
-                <GithubIcon color="#D8D8D8" size={24} />
-              </span>
-            )}
+            <div id="socials" className={styles['socials-container']}>
+              {speaker.linkedin ? (
+                <SocialIcon
+                  aria-label="Linkedin"
+                  network="linkedin"
+                  url={speaker.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              ) : (
+                <SocialIcon
+                  aria-label="Linkedin"
+                  network="linkedin"
+                  bgColor="#D8D8D8"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              )}
+              {speaker.twitter ? (
+                <SocialIcon
+                  aria-label="Twitter"
+                  network="twitter"
+                  url={speaker.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              ) : (
+                <SocialIcon
+                  aria-label="Twitter"
+                  network="twitter"
+                  bgColor="#D8D8D8"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              )}
+              {speaker.instagram ? (
+                <SocialIcon
+                  aria-label="Instagram"
+                  network="instagram"
+                  url={speaker.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              ) : (
+                <SocialIcon
+                  aria-label="Instagram"
+                  network="instagram"
+                  bgColor="#D8D8D8"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              )}
+              {speaker.facebook ? (
+                <SocialIcon
+                  aria-label="Facebook"
+                  network="facebook"
+                  url={speaker.facebook ?? ''}
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              ) : (
+                <SocialIcon
+                  aria-label="Facebook"
+                  network="facebook"
+                  bgColor="#D8D8D8"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              )}
+              {speaker.tiktok ? (
+                <SocialIcon
+                  aria-label="TikTok"
+                  network="tiktok"
+                  url={speaker.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              ) : (
+                <SocialIcon
+                  aria-label="TikTok"
+                  network="tiktok"
+                  bgColor="#D8D8D8"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              )}
+              {speaker.youtube ? (
+                <SocialIcon
+                  aria-label="Youtube"
+                  network="youtube"
+                  url={speaker.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              ) : (
+                <SocialIcon
+                  aria-label="Youtube"
+                  network="youtube"
+                  bgColor="#D8D8D8"
+                  style={{ height: 50, width: 50, marginRight: '1rem' }}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
