@@ -140,7 +140,6 @@
 .button:hover,
 .button:focus {
   background: var(--brand);
-  color: var(--text-color);
   border: 1px solid var(--brand);
 }
 
@@ -150,11 +149,6 @@
   min-width: var(--space-4x);
 }
 
-@media (min-width: 500px) {
-  .button-resource {
-    max-width: 350px;
-  }
-}
 
 .truncate {
   white-space: nowrap;

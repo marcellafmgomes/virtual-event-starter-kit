@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { Speaker } from '@lib/types';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './speakers-grid.module.css';
 
 type Props = {
@@ -39,8 +39,8 @@ export default function SpeakersGrid({ speakers }: Props) {
                 title={speaker.name}
                 placeholder={speaker.image.blurDataURL ? 'blur' : 'empty'}
                 blurDataURL={speaker.image.blurDataURL}
-                width={300}
-                height={400}
+                width={350}
+                height={471}
               />
             </div>
             <div className={styles.cardBody}>
