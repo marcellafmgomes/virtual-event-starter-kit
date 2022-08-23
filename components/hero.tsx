@@ -46,6 +46,17 @@ export default function Hero() {
       >
         {SITE_DESCRIPTION}
       </h2>
+      <div className={styles['sponsor-details']}>
+          <a
+            href={"https://www.sympla.com.br/evento/saudhe-seminario-de-administracao-publica-direitos-humanos-e-servidores/1678980"}
+            target="_blank"
+            rel="noopener noreferrer"
+            type="button"
+            className={styles.button}
+          >
+            Inscreva-se Já!! E aproveite o evento!
+          </a>
+        </div>    
     </div>
   );
 }

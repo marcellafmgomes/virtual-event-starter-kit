@@ -78,3 +78,35 @@
     margin: 40px auto;
   }
 }
+
+.button {
+  border-radius: var(--space-2x);
+  border: 1px solid var(--sky1);
+  color: var(--text-color);
+  background: var(--sky1);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--text-md);
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  outline: none;
+  transition: background-color 0.2s ease;
+  padding: 0 var(--space-4x);
+  height: 55px;
+  margin-right: var(--space-4x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+.button > svg {
+  margin-left: var(--space-2x);
+  min-height: var(--space-4x);
+  min-width: var(--space-4x);
+}
