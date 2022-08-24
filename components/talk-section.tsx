@@ -49,12 +49,10 @@ export default function TalkSection({ talk }: Props) {
       </Link>
       <div key={talk.title} className={styles.container}>
         <div className={styles['talk-details']}>
-        <h1 className={styles.date}>          
-            {format(parseISO(talk.start), 'd MMMM yyyy - hh:mm', { locale: ptBR })}
+          <h1 className={styles.date}>
+            {format(parseISO(talk.start), 'd MMMM yyyy - HH:mm', { locale: ptBR })}
           </h1>
-          <h1 className={styles.title}>
-            {talk.title}
-          </h1>
+          <h1 className={styles.title}>{talk.title}</h1>
           <p className={styles.description}>{talk.description}</p>
         </div>
       </div>
