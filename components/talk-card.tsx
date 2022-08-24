@@ -30,7 +30,7 @@ type Props = {
 
 const formatDate = (date: string) => {
   // https://github.com/date-fns/date-fns/issues/946
-  return format(parseISO(date), "h:mmaaaaa'm'");
+  return format(parseISO(date), 'HH:mm');
 };
 
 export default function TalkCard({ talk: { title, slug, speaker, start, end }, showTime }: Props) {
