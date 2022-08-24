@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, ScheduleType, Speaker, Sponsor, Stage } from '@lib/types';
+import { Job, ScheduleType, Speaker, Sponsor, Stage, Talk } from '@lib/types';
 
 import * as datoCmsApi from './cms-providers/dato';
 
@@ -23,6 +23,7 @@ let cmsApi: {
   getAllSponsors: () => Promise<Sponsor[]>;
   getAllJobs: () => Promise<Job[]>;
   getAllSchedules: () => Promise<ScheduleType[]>;
+  getAllTalks: () => Promise<Talk[]>;
 };
 
 if (process.env.DATOCMS_READ_ONLY_API_TOKEN) {
@@ -33,7 +34,8 @@ if (process.env.DATOCMS_READ_ONLY_API_TOKEN) {
     getAllStages: () => Promise.resolve([]),
     getAllSponsors: () => Promise.resolve([]),
     getAllJobs: () => Promise.resolve([]),
-    getAllSchedules: () => Promise.resolve([])
+    getAllSchedules: () => Promise.resolve([]),
+    getAllTalks: () => Promise.resolve([])
   };
 }
 
@@ -55,4 +57,8 @@ export async function getAllJobs(): Promise<Job[]> {
 
 export async function getAllSchedules(): Promise<ScheduleType[]> {
   return cmsApi.getAllSchedules();
+}
+
+export async function getAllTalks(): Promise<Talk[]> {
+  return cmsApi.getAllTalks();
 }

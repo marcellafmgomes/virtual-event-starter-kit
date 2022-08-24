@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
+import { Talk } from '@lib/types';
 import cn from 'classnames';
+import { format, isAfter, isBefore, parseISO } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { parseISO, format, isBefore, isAfter } from 'date-fns';
-import { Talk } from '@lib/types';
+import { useEffect, useState } from 'react';
 import styles from './talk-card.module.css';
 
 type Props = {
@@ -33,7 +33,7 @@ const formatDate = (date: string) => {
   return format(parseISO(date), "h:mmaaaaa'm'");
 };
 
-export default function TalkCard({ talk: { title, speaker, start, end }, showTime }: Props) {
+export default function TalkCard({ talk: { title, slug, speaker, start, end }, showTime }: Props) {
   const [isTalkLive, setIsTalkLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
@@ -43,7 +43,7 @@ export default function TalkCard({ talk: { title, speaker, start, end }, showTim
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, [end, start]);
 
-  const firstSpeakerLink = `/speakers/${speaker[0].slug}`;
+  const firstSpeakerLink = `/talks/${slug}`;
 
   return (
     <div key={title} className={styles.talk}>

@@ -30,5 +30,14 @@ module.exports = {
     }
 
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/talks',
+        destination: '/schedule',
+        permanent: true
+      }
+    ];
   }
 };

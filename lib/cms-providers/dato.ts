@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, ScheduleType, Speaker, Sponsor, Stage } from '@lib/types';
+import { Job, ScheduleType, Speaker, Sponsor, Stage, Talk } from '@lib/types';
 
 const API_URL = 'https://graphql.datocms.com/';
 const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
@@ -83,6 +83,7 @@ export async function getAllSchedules(): Promise<ScheduleType[]> {
           slug
           talks {
             title
+            slug
             start
             end
             speaker {
@@ -99,6 +100,39 @@ export async function getAllSchedules(): Promise<ScheduleType[]> {
    `);
 
   return data.allSchedules;
+}
+
+export async function getAllTalks(): Promise<Talk[]> {
+  const data = await fetchCmsAPI(`
+     {
+       allTalks(first: 100) {
+          title
+          slug
+          description
+          start
+          end
+          speaker {
+            name
+            bio
+            title
+            slug
+            linkedin
+            twitter
+            instagram
+            facebook
+            tiktok
+            youtube                  
+            company
+            image {
+              url(imgixParams: {fm: jpg, fit: crop, w: 300, h: 400})
+              blurDataURL: blurUpThumb
+            }
+          }
+       }
+     }
+   `);
+
+  return data.allTalks;
 }
 
 export async function getAllStages(): Promise<Stage[]> {

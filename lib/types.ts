@@ -57,6 +57,7 @@ export type ScheduleType = {
 
 export type Talk = {
   title: string;
+  slug: string;
   description: string;
   start: string;
   end: string;
