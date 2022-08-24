@@ -40,13 +40,12 @@ export default function Hero() {
         className={cn(
           styleUtils.appear,
           styleUtils['appear-third'],
-          styleUtils['show-on-tablet'],
           styles.description
         )}
       >
-        {SITE_DESCRIPTION}
+        Seminário de Administração Pública, Direitos Humanos e Servidores
       </h2>
-      <div className={styles['sponsor-details']}>
+      <div className={styles['info']}>
           <a
             href={"https://www.sympla.com.br/evento/saudhe-seminario-de-administracao-publica-direitos-humanos-e-servidores/1678980"}
             target="_blank"

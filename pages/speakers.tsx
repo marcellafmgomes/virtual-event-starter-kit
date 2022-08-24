@@ -16,14 +16,13 @@
 
 import { GetStaticProps } from 'next';
 
+import Header from '@components/header';
+import Layout from '@components/layout';
 import Page from '@components/page';
 import SpeakersGrid from '@components/speakers-grid';
-import Layout from '@components/layout';
-import Header from '@components/header';
 
 import { getAllSpeakers } from '@lib/cms-api';
 import { Speaker } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
   speakers: Speaker[];
@@ -32,7 +31,7 @@ type Props = {
 export default function Speakers({ speakers }: Props) {
   const meta = {
     title: 'Palestrantes - Seminário de Administração Pública, Direitos Humanos e Servidores',
-    description: META_DESCRIPTION
+    description: 'Palestrantes, Organizadores e Moderadores do seminário'
   };
   return (
     <Page meta={meta}>

@@ -134,3 +134,9 @@
 .githubIcon {
   margin-left: var(--space-2x);
 }
+
+.description {
+  color: var(--secondary-color);
+  font-size: 18px;
+  width: 100%;
+}

@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
+import Layout from '@components/layout';
 import Page from '@components/page';
 import SpeakerSection from '@components/speaker-section';
-import Layout from '@components/layout';
 
 import { getAllSpeakers } from '@lib/cms-api';
 import { Speaker } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
   speaker: Speaker;
@@ -31,7 +30,7 @@ type Props = {
 export default function SpeakerPage({ speaker }: Props) {
   const meta = {
     title: 'SAUDHE - Seminário de Administração Pública, Direitos Humanos e Servidores',
-    description: META_DESCRIPTION
+    description: 'Palestra sobre o tema: ' + speaker.talk.title
   };
 
   return (

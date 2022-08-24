@@ -174,8 +174,8 @@ export default function SpeakerSection({ speaker }: Props) {
       </div>
       {speaker.talk && (
         <div className={styles['talk-details']}>
-          <h3 className={styles['socials-header']}>{speaker.talk.title}</h3>
-          <p>{speaker.talk.description}</p>
+          <h2 className={styles['socials-header']}>{speaker.talk.title}</h2>
+          <p className={styles.description}>{speaker.talk.description}</p>
         </div>
       )}
     </>

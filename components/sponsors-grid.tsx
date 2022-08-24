@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import Link from 'next/link';
-import Image from 'next/image';
-import cn from 'classnames';
 import { Sponsor } from '@lib/types';
+import cn from 'classnames';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './sponsors-grid.module.css';
 
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
@@ -35,13 +35,11 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
           <Image
             alt={sponsor.name}
             src={sponsor.cardImage.url}
-            className={cn(styles.image, {
-              [styles.silver]: sponsor.tier === 'silver'
-            })}
+            className={styles.image}
             loading="lazy"
             title={sponsor.name}
-            width={900}
-            height={500}
+            width={480}
+            height={280}
           />
         </div>
         {sponsor.tier !== 'silver' && (

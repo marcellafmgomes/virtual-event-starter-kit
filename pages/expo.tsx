@@ -16,14 +16,13 @@
 
 import { GetStaticProps } from 'next';
 
-import Page from '@components/page';
-import SponsorsGrid from '@components/sponsors-grid';
 import Header from '@components/header';
 import Layout from '@components/layout';
+import Page from '@components/page';
+import SponsorsGrid from '@components/sponsors-grid';
 
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
   sponsors: Sponsor[];
@@ -32,7 +31,7 @@ type Props = {
 export default function ExpoPage({ sponsors }: Props) {
   const meta = {
     title: 'Realização - Seminário de Administração Pública, Direitos Humanos e Servidores',
-    description: META_DESCRIPTION
+    description: 'Patrocinadores e apoiadores do seminário'
   };
 
   return (

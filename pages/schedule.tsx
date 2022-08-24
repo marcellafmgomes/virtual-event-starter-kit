@@ -32,7 +32,7 @@ type Props = {
 export default function SchedulePage({ allSchedules }: Props) {
   const meta = {
     title: 'Cronograma - Seminário de Administração Pública, Direitos Humanos e Servidores',
-    description: META_DESCRIPTION
+    description: 'Cronograma do seminário dividido em dias e horários'
   };
 
   return (

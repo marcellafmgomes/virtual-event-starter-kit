@@ -175,7 +175,7 @@ export async function getAllSponsors(): Promise<Sponsor[]> {
          website
          tier
          cardImage {
-           url(imgixParams: {fm: jpg, fit: crop})
+           url(imgixParams: {fm: jpg, fit: crop, w: 240, h: 140})
          }
          logo {
            url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100})
