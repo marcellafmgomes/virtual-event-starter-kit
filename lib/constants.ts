@@ -36,7 +36,7 @@ export const LEGAL_URL = process.env.NEXT_PUBLIC_PRIVACY_POLICY_URL;
 export const COPYRIGHT_HOLDER = process.env.NEXT_PUBLIC_COPYRIGHT_HOLDER;
 
 export const CODE_OF_CONDUCT =
-  'https://www.notion.so/vercel/Code-of-Conduct-Example-7ddd8d0e9c354bb597a0faed87310a78';
+  'https://www.notion.so/C-digo-de-Conduta-14871600b69a4e15bdf3566b25a65e6f';
 export const REPO = 'https://github.com/marcellafmgomes/virtual-event-starter-kit';
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
